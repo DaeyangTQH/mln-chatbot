@@ -54,7 +54,8 @@ def _csv_env(name: str, default: str = "") -> list[str]:
 # separated by commas. Keeping production origins explicit is safer than '*'.
 CORS_ALLOW_ORIGINS = _csv_env(
     "CORS_ALLOW_ORIGINS",
-    "http://localhost:8899,http://127.0.0.1:8899,http://localhost:5173,http://127.0.0.1:5173",
+    "http://localhost:8899,http://127.0.0.1:8899,http://localhost:5173,"
+    "http://127.0.0.1:5173,https://mln121-xi.vercel.app",
 )
 
 EMBEDDING_MODEL = os.getenv("RAG_EMBEDDING_MODEL", "text-embedding-3-large")
