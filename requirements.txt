@@ -1,0 +1,9 @@
+openai
+fastapi
+uvicorn
+rank_bm25
+pyvi
+tiktoken
+numpy
+pdfplumber
+pypdf

@@ -1,0 +1,17 @@
+{
+  "structured": {
+    "textbook_nodes": 25,
+    "synthesis_nodes": 8,
+    "policy_nodes": 2,
+    "total_nodes": 35
+  },
+  "chunks": 179,
+  "parents": 35,
+  "embedding_model": "text-embedding-3-large",
+  "embedding_shape": [
+    179,
+    3072
+  ],
+  "chroma_collection": "mln121_monopoly",
+  "reranker_default": "off"
+}

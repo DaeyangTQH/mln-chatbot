@@ -1,0 +1,33 @@
+.DS_Store
+
+# Local environment
+.env
+.env.*
+
+# Dependencies and build output
+node_modules/
+ui/node_modules/
+__pycache__/
+*.py[cod]
+dist/
+ui/dist/
+demo/.next/
+.vite/
+ui/.vite/
+coverage/
+.cache/
+
+# RAG runtime caches (regenerated on demand)
+output/rag/summary_cache.json
+output/rag/flashcards_cache.json
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local/generated media
+.codex_video_frames/
+Ghi Màn hình 2026-07-01 lúc 15.01.08.mov
+Ghi Màn hình 2026-07-01 lúc 15.01.08.mov

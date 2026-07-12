@@ -1,0 +1,722 @@
+{
+  "model": "text-embedding-3-large",
+  "dimension": 3072,
+  "items": [
+    {
+      "id": "textbook_node_0001_chunk_01",
+      "hash": "cbee9368ad353a9af904011d189a3b4cc083b208e4412d370b81463f0096cc6a"
+    },
+    {
+      "id": "textbook_node_0001_chunk_02",
+      "hash": "ec8ba97dcdfe9f8fcb5454944c254d9dfa171861839a64af29d9898a678c322c"
+    },
+    {
+      "id": "textbook_node_0002_chunk_01",
+      "hash": "8ceecc7eb72c493d6426fb74e95004c267375ac84b12df025d17c0a824ee0341"
+    },
+    {
+      "id": "textbook_node_0003_chunk_01",
+      "hash": "8a7a2bc80d46937857757489df36d3ec01a1637e0fdfd8232bd62894f76f91a0"
+    },
+    {
+      "id": "textbook_node_0003_chunk_02",
+      "hash": "9b1dfa36f56ed4fa9a9ce2eafcb86dc534a592f072683277781abf71e1003b5a"
+    },
+    {
+      "id": "textbook_node_0003_chunk_03",
+      "hash": "2dce87755778b33f5c6e9d253f618d6b02c54858efc938808103242b6b8e3b3b"
+    },
+    {
+      "id": "textbook_node_0003_chunk_04",
+      "hash": "0e5971709b714f0cc02b234439f27c6080a97aad3b9e9b14aaf6b05def5429ab"
+    },
+    {
+      "id": "textbook_node_0003_chunk_05",
+      "hash": "fc159f5f60691cf38a3341ef57f340fda6cec7a78f9ecca07c7249c9f0c40b2f"
+    },
+    {
+      "id": "textbook_node_0003_chunk_06",
+      "hash": "6a93b2627c719d02bb5357fce5c15a661c70d60d24370fea8cc19b9d46524f72"
+    },
+    {
+      "id": "textbook_node_0004_chunk_01",
+      "hash": "c1194e9a72ebc4ae02d6a3e673ce28b72b2c1fd3744d550447d9d4cd9cea01e3"
+    },
+    {
+      "id": "textbook_node_0004_chunk_02",
+      "hash": "03f7621c077c9788899c08c8ea94ca37b5b0b68979fa1463efd8fe853b33e6c2"
+    },
+    {
+      "id": "textbook_node_0004_chunk_03",
+      "hash": "33dd612eca3138dbff7204cd78ef0c4581b175fb50cef445637a43f29a0f0a27"
+    },
+    {
+      "id": "textbook_node_0004_chunk_04",
+      "hash": "fb17df28b230828030af0535aceeae4a70d85b90271810af3e6f2d8b7930cc78"
+    },
+    {
+      "id": "textbook_node_0004_chunk_05",
+      "hash": "943f2ae23870da99c6b0c505f794e5ec2c951ff2d18de7bc2a08e5dbb23c726f"
+    },
+    {
+      "id": "textbook_node_0004_chunk_06",
+      "hash": "8e77b1834147f8aa2ee812f9f1bcb151be7328682d16656e05aef5b0ed5fe34c"
+    },
+    {
+      "id": "textbook_node_0004_chunk_07",
+      "hash": "d47a2a548976b18df763eb4a05fb7f3ede89e16d786c46004a8dfefd66725478"
+    },
+    {
+      "id": "textbook_node_0004_chunk_08",
+      "hash": "5b21e815390e8d257db5d118fb2b8136c679bb0e7c948368e1749d5d908069d1"
+    },
+    {
+      "id": "textbook_node_0004_chunk_09",
+      "hash": "73599f3e199ca6d23c94c8cf87b08708ac025d2cd4d3a7aa60d90186b2ec656c"
+    },
+    {
+      "id": "textbook_node_0004_chunk_10",
+      "hash": "bba02a76dd991eed8d293e3c6a97dfc8fad4c91741acf6fdc0879bc1d98010c9"
+    },
+    {
+      "id": "textbook_node_0004_chunk_11",
+      "hash": "4c8595bb1e64606bb6143afbaf42231348a2cc58b0d8069907a25225489cc349"
+    },
+    {
+      "id": "textbook_node_0004_chunk_12",
+      "hash": "c84f17705aac05cafaeae648d867e4ba24584bf8ad332fc6ed1b2de4cff76bed"
+    },
+    {
+      "id": "textbook_node_0004_chunk_13",
+      "hash": "c36ec579bba7cab35fd333296a6824014a9ab563f99997a68b12902075918d1f"
+    },
+    {
+      "id": "textbook_node_0004_chunk_14",
+      "hash": "03dd7f9cf7d22ee096680bc319bf7e0578d37d07face803e4dd467c8ca163fe4"
+    },
+    {
+      "id": "textbook_node_0004_chunk_15",
+      "hash": "71b4f32908977f63bfe50454e3f044fd197ea763a8d36f7fd3db69fa5c9fb4c6"
+    },
+    {
+      "id": "textbook_node_0004_chunk_16",
+      "hash": "30303fa81c5ca7c780f2691eefd92e137c7c6f4e145f0a833558a6d87caf5814"
+    },
+    {
+      "id": "textbook_node_0004_chunk_17",
+      "hash": "2780f70e495d49b42f0659e4362f5bb932531813847bb8a6ce10b03058a31c54"
+    },
+    {
+      "id": "textbook_node_0004_chunk_18",
+      "hash": "c9a321ea1d2c181c65d4ae7047c2b226f16c693c9f66ef46b3f25de2dc204716"
+    },
+    {
+      "id": "textbook_node_0004_chunk_19",
+      "hash": "32e0dc8778b34bbed99d98616fbfa1e59f5f761d361e2bc025da2e351fd4b070"
+    },
+    {
+      "id": "textbook_node_0004_chunk_20",
+      "hash": "58e772b7133c9eb95f9ba870565f51363b2d4489619845f3463d13958144a1ea"
+    },
+    {
+      "id": "textbook_node_0004_chunk_21",
+      "hash": "85cd1671f673fb5629cbf778190af8cfc05b24ecfc908c8defc6739e32e2f016"
+    },
+    {
+      "id": "textbook_node_0004_chunk_22",
+      "hash": "9a3f23e555c4ded01977c900271dc71871182b116dacaf6b056870ac03b54b0c"
+    },
+    {
+      "id": "textbook_node_0004_chunk_23",
+      "hash": "f58118804e813620504bf94afb32f676294f841a509f9c49cec5d97e1a0514a5"
+    },
+    {
+      "id": "textbook_node_0004_chunk_24",
+      "hash": "5ddab8c3dd2afc9115a120389da4215bf8053d38e472dbb3e30b08947204d0a9"
+    },
+    {
+      "id": "textbook_node_0004_chunk_25",
+      "hash": "ac3278fb82c0161c7619921d2cf04ad4a895df635f6e05bf1dcdba5c3470c623"
+    },
+    {
+      "id": "textbook_node_0005_chunk_01",
+      "hash": "b786af0d5a8ce8ce44236743de7e43238ab19fc32852b8384f68734951b9bd3b"
+    },
+    {
+      "id": "textbook_node_0006_chunk_01",
+      "hash": "4e879a63996d138c3b64a8117a16cf03713a9c6de0f432fef8b9289082722600"
+    },
+    {
+      "id": "textbook_node_0007_chunk_01",
+      "hash": "c3cd6b3d131349d0597c14ced5dd2853ee2204a846cf30ed5086b968af015d61"
+    },
+    {
+      "id": "textbook_node_0008_chunk_01",
+      "hash": "9df4e48f213ea3be050b0f9ffb6088270477b7d0ec2d22e01fc3d4de284e8a9d"
+    },
+    {
+      "id": "textbook_node_0008_chunk_02",
+      "hash": "b47a3329bc8eb6c8a801ff7e21f6c054bac517872e175ebd6db70578914b1a64"
+    },
+    {
+      "id": "textbook_node_0009_chunk_01",
+      "hash": "c28f3be53ef54fc1ea322b870b8f56d2aa96b1a1ff65ac38334c6f11b4a06569"
+    },
+    {
+      "id": "textbook_node_0009_chunk_02",
+      "hash": "880a1e1057e053e1b4d60c7e8c99fe8088f7a86358d11a21c4bbfd5682058730"
+    },
+    {
+      "id": "textbook_node_0010_chunk_01",
+      "hash": "b7cecd103a904a078b80a12e466f3f3449a6f9c014e1d432287a46389243bad3"
+    },
+    {
+      "id": "textbook_node_0011_chunk_01",
+      "hash": "87614c6f61ff7c6dc686c584096e09608780b533252aa06183faafc752413411"
+    },
+    {
+      "id": "textbook_node_0011_chunk_02",
+      "hash": "79a45bf4aa7aaebe122087abb1f73071653e9aa6bd3e9ab902140a2bfe6438d9"
+    },
+    {
+      "id": "textbook_node_0011_chunk_03",
+      "hash": "c4b59fb5540a8c16064cab1efc50a4a312f8afea5eb81e384796af883fe06926"
+    },
+    {
+      "id": "textbook_node_0011_chunk_04",
+      "hash": "90fee7ec9b08dfe591d32203022dc12a16f42f398e4ed31462c2a231fda47fc6"
+    },
+    {
+      "id": "textbook_node_0011_chunk_05",
+      "hash": "0c8bd23a1aece964e6243a9ed577267a6a5a9c1b099fa7eba7e5df47469f299a"
+    },
+    {
+      "id": "textbook_node_0011_chunk_06",
+      "hash": "3a01f4d7389bddee926d0379328538c0b2b508f363c69aaf189ab43ccb4ee855"
+    },
+    {
+      "id": "textbook_node_0011_chunk_07",
+      "hash": "86b150b7890537300de634cab2286432da79174d8be704d72a4ac9bfae43f348"
+    },
+    {
+      "id": "textbook_node_0011_chunk_08",
+      "hash": "b1737c5ddd8b5ef4f72c97e75c20d676cb40ded6ce61c6a58dc6fde489e1904d"
+    },
+    {
+      "id": "textbook_node_0011_chunk_09",
+      "hash": "9996ac483e97958b9e19a44af21e8743fc7fbac8761e159b9e61437fc0dde504"
+    },
+    {
+      "id": "textbook_node_0011_chunk_10",
+      "hash": "d4ee3617494c53159f3fe6ec68927af67f910dd2ef98c9c0c51c7d6f05dd0da7"
+    },
+    {
+      "id": "textbook_node_0011_chunk_11",
+      "hash": "444fc56787c9d0b4f1b407d2e0aec6ed291ffdb83258b04b3118e3151a606eb5"
+    },
+    {
+      "id": "textbook_node_0011_chunk_12",
+      "hash": "83aeb0d41b58fa8f331bcfef03973c526a6a9bcac1ef8f870652ba3bf8cd409a"
+    },
+    {
+      "id": "textbook_node_0011_chunk_13",
+      "hash": "e80f1282a58cee88c12a2f04190c8a556d0d897c9a1cb85a3ac2377bae32efc1"
+    },
+    {
+      "id": "textbook_node_0011_chunk_14",
+      "hash": "505ee4a27396c5b2a953fa716a3ba71ee094717a6dde1a12d40bf06762193edd"
+    },
+    {
+      "id": "textbook_node_0011_chunk_15",
+      "hash": "0fa5d4a2fa3b77a8b92b14418d172561f79c58d71755f400149fb92a6283b764"
+    },
+    {
+      "id": "textbook_node_0011_chunk_16",
+      "hash": "3f49ab198b36a84a9838ab69b4fbf3552d2c5d92f1c98e677188a77b1f127f0f"
+    },
+    {
+      "id": "textbook_node_0011_chunk_17",
+      "hash": "f4d87f93e18448d7ec5317567224bb6a4e44003e972a30a4e69b80196ead2d54"
+    },
+    {
+      "id": "textbook_node_0011_chunk_18",
+      "hash": "46470c23a348a121992b6cf3505afb1f1ef5ca1d64152ed63f02c237e1103d96"
+    },
+    {
+      "id": "textbook_node_0011_chunk_19",
+      "hash": "dbc65c37acfe1619febc9ede576fe0384447fa389e7d0306a03e150cd6510a63"
+    },
+    {
+      "id": "textbook_node_0012_chunk_01",
+      "hash": "e9f88b5400c925cd8d8746714bd0b87feef27ae41df2b8243d21488172308b14"
+    },
+    {
+      "id": "textbook_node_0012_chunk_02",
+      "hash": "2f23ebb2b8d08f4b62c354bd5763ad5d45546a0feb5860a338795d73fd3b4ddf"
+    },
+    {
+      "id": "textbook_node_0013_chunk_01",
+      "hash": "9f6c333cabc3ffa76a70f3e8bcc9fc46a203a132d79a10916cfbc810ef7d372b"
+    },
+    {
+      "id": "textbook_node_0013_chunk_02",
+      "hash": "bcf93229b26aa11fe6dd9b0043b33b334d3a0113d64338adef62040e10d542d9"
+    },
+    {
+      "id": "textbook_node_0013_chunk_03",
+      "hash": "6f676f586a3d770ec35d6ac78ceccefa47307525d7b6e971a81560201ebb617b"
+    },
+    {
+      "id": "textbook_node_0013_chunk_04",
+      "hash": "145fcb149c2958aee20c6cfa266db33c4d6d68bf5b9b1c38d45f02ecca49cc62"
+    },
+    {
+      "id": "textbook_node_0013_chunk_05",
+      "hash": "45fdfe26813f4ac40dbfe40ab1b05b64fe3b3c39d8eb8f1020c5cac3af7e7cf4"
+    },
+    {
+      "id": "textbook_node_0013_chunk_06",
+      "hash": "4ff990bf0c3a29624a6f18ed4f515dedde19d81500dae4d57dda919e32efcba5"
+    },
+    {
+      "id": "textbook_node_0013_chunk_07",
+      "hash": "c957a35f4f10fc57bf0813ba34054909edee5e8f6b569d3007b4c74fd9cf4b83"
+    },
+    {
+      "id": "textbook_node_0013_chunk_08",
+      "hash": "aeb1ea903244738708344b54694599b8b5ce3e89e20879a0cdaa7ba4b1e6c532"
+    },
+    {
+      "id": "textbook_node_0013_chunk_09",
+      "hash": "757c18101791b49d00cf87946ab50f6c216d4e714bd85ad9461c51c2fbd690bc"
+    },
+    {
+      "id": "textbook_node_0013_chunk_10",
+      "hash": "90210c031a095449287fb8274262965d41ee826946af1d7d3b441d394acf1180"
+    },
+    {
+      "id": "textbook_node_0013_chunk_11",
+      "hash": "8b6d32fe01ed775a22a195a7d2584ecc02d1a1dd9da4f20a13766e5eda2e8612"
+    },
+    {
+      "id": "textbook_node_0013_chunk_12",
+      "hash": "f14ebff40f06a7ef150bdea6a6c547b78184c5dddb5df652ce52817159f42a55"
+    },
+    {
+      "id": "textbook_node_0014_chunk_01",
+      "hash": "5e19c69304daffd29a91f925076ecc97f3ea01c2ce38fc65c8eff30e99093cd7"
+    },
+    {
+      "id": "textbook_node_0014_chunk_02",
+      "hash": "87182a6b9dfb171b3782dd8d425612c68f2ed417083d2b044d0cb9e95c9f36d9"
+    },
+    {
+      "id": "textbook_node_0014_chunk_03",
+      "hash": "36c56ed8ddb77dfd702000121989066932352811f139ed460c527f955b1657cf"
+    },
+    {
+      "id": "textbook_node_0014_chunk_04",
+      "hash": "efc83d9bd654b53e844de938f23f65015a62bec5a3f04fd2b4d13e3da699b1da"
+    },
+    {
+      "id": "textbook_node_0014_chunk_05",
+      "hash": "1ef3eec0974501a26a127af4223f498556589d24b3c2bba69bd201e31ce6edbd"
+    },
+    {
+      "id": "textbook_node_0014_chunk_06",
+      "hash": "81260a22569b62f460dd5be9c9aa40f6f443cde0582345d51cd4dca0501e8870"
+    },
+    {
+      "id": "textbook_node_0014_chunk_07",
+      "hash": "b31441477883058064af74e3b0e07bfb7679cdaf791e5c1108c7d4ceabd37fa4"
+    },
+    {
+      "id": "textbook_node_0014_chunk_08",
+      "hash": "95a48188d9a2dfe6f929e47f2d7f87832b901f4346d16d782f046683ee755a15"
+    },
+    {
+      "id": "textbook_node_0014_chunk_09",
+      "hash": "669cb9bb6182bd6efd823df0ebc005a900c53c97b29f549bc7272db523dcec6f"
+    },
+    {
+      "id": "textbook_node_0015_chunk_01",
+      "hash": "c72471b8fcd919aceb8f636635028f62bb4e01fa9b4400b5e0e851a603ae7c95"
+    },
+    {
+      "id": "textbook_node_0015_chunk_02",
+      "hash": "0bdf151e4894b58cc2363c991f70b59bfa086f606ec897f6a43e745c9c792f30"
+    },
+    {
+      "id": "textbook_node_0015_chunk_03",
+      "hash": "9afdf506643039ee52319a69cecfdb3ea45cd9e47a517b6b5e1ff763fbcb43eb"
+    },
+    {
+      "id": "textbook_node_0015_chunk_04",
+      "hash": "0bd5dc73b083109c6f65c9ed6f75853754aff5219e91c561aa2b5b83e53924c9"
+    },
+    {
+      "id": "textbook_node_0015_chunk_05",
+      "hash": "ad65746cb8ac92cebfbc734a36da470ac9d955515bc21faaea605a5ca37553b1"
+    },
+    {
+      "id": "textbook_node_0015_chunk_06",
+      "hash": "c1d54ec0853cfc7e044f60fdeeab3938a63347575d6c4f3e63f2effbcfe7c266"
+    },
+    {
+      "id": "textbook_node_0015_chunk_07",
+      "hash": "fdd731bbe65f8cdae7e6754b4b008e0b6948c5aa55a4bed4114fdf6026ceebff"
+    },
+    {
+      "id": "textbook_node_0015_chunk_08",
+      "hash": "bfc01a6d8c96fb67d5ed47b3f949f7daa032a25669d6f91daef50e88647acad4"
+    },
+    {
+      "id": "textbook_node_0015_chunk_09",
+      "hash": "a729ea14268cbfc71ed2b27826eb050555bf23fcc223883cb32e133a9fb56eea"
+    },
+    {
+      "id": "textbook_node_0015_chunk_10",
+      "hash": "43e0cd19147e2e7178066d0fd6a5cfaf79abe2d4fe0da28d7d47c48d85f867b7"
+    },
+    {
+      "id": "textbook_node_0015_chunk_11",
+      "hash": "44af2d2abf4ecd4db0471301b2a5aad8ce258905e4492b6596bf53255ae75c92"
+    },
+    {
+      "id": "textbook_node_0015_chunk_12",
+      "hash": "dbc0d1eaacaf86ef24965ea8de71b06d1b56bd231465d2ad38a0fc0eb15d74b3"
+    },
+    {
+      "id": "textbook_node_0016_chunk_01",
+      "hash": "849e381aa24f8f2f931c6fe39d281adf16e10c204231bf18e06bb2df1e082bc6"
+    },
+    {
+      "id": "textbook_node_0016_chunk_02",
+      "hash": "2b1a48b3cecc3145a6a7bb8c35a94edce77c7d13953dba886d45cea38bd7c5b4"
+    },
+    {
+      "id": "textbook_node_0016_chunk_03",
+      "hash": "eb7a6e10e3a23cf8a28d0897aae62e018682d7b809ddb4ce9bcd25d81b35cb16"
+    },
+    {
+      "id": "textbook_node_0016_chunk_04",
+      "hash": "782651cd6a233f8eebc9f671c9960f05f7e247998c2eef76b5c942074d3c824b"
+    },
+    {
+      "id": "textbook_node_0016_chunk_05",
+      "hash": "313a6ebed4fcdb8ead77e67be217c198be6cc5d48a5c75d25726bbc8fa0dad01"
+    },
+    {
+      "id": "textbook_node_0016_chunk_06",
+      "hash": "cea1fcd097a0717c4c9f169685434bc2117127fea7ff251264d9af22b185669c"
+    },
+    {
+      "id": "textbook_node_0017_chunk_01",
+      "hash": "95934e106e596321c0398a34ac5fea835cea12136217c6220fdb85fb04f168bc"
+    },
+    {
+      "id": "textbook_node_0017_chunk_02",
+      "hash": "450be45f3044a8250f0d676c4c093c123fc53d676555f319720f994486802c15"
+    },
+    {
+      "id": "textbook_node_0017_chunk_03",
+      "hash": "4201cdf8768ab2e7628d215bcf0dea3d21d90dac7167f7e86f177950eae2a955"
+    },
+    {
+      "id": "textbook_node_0017_chunk_04",
+      "hash": "021b81d88da67ca3444e595e7e0638365c174d09f790a1392c02e9c0a425b2b0"
+    },
+    {
+      "id": "textbook_node_0017_chunk_05",
+      "hash": "3f2bb1448cf2d53c3c893bddcd4e982c3bda167bf92ea815d39c715ae018c6ed"
+    },
+    {
+      "id": "textbook_node_0017_chunk_06",
+      "hash": "7a544c2c9510ba1bbbb0bb0ce8bf17896ab2af87b0def7f8524735ad1f3430c2"
+    },
+    {
+      "id": "textbook_node_0017_chunk_07",
+      "hash": "3a7ac84d5ceca1e7ab33f0a900233f9622ebf46308d42d0d25bbaecc3ac94e89"
+    },
+    {
+      "id": "textbook_node_0017_chunk_08",
+      "hash": "39d1d94039556c62e1431baaee9b8a41f68febe9e1cd5b83c41425f73244c8fb"
+    },
+    {
+      "id": "textbook_node_0017_chunk_09",
+      "hash": "b724a5f3369b58c8486b6fee4611a3360bf308ea89177c01aca7e443216dd408"
+    },
+    {
+      "id": "textbook_node_0017_chunk_10",
+      "hash": "8a6d9400084ecaa59e0a361a6edaab373beea68f211e844caa41c18f642aac27"
+    },
+    {
+      "id": "textbook_node_0017_chunk_11",
+      "hash": "17efe322d5745ebb08584a0b669488d4576c192501a64250af54f90b96869705"
+    },
+    {
+      "id": "textbook_node_0017_chunk_12",
+      "hash": "33a52b2c9f25efffb0e60db111945af9457f7732c237b6e77f7af6d3bc7faa62"
+    },
+    {
+      "id": "textbook_node_0017_chunk_13",
+      "hash": "de27196b79bfec7a13ac84be9677c2adab7cb1e8c4cb9d45338e0069f1ca1a80"
+    },
+    {
+      "id": "textbook_node_0017_chunk_14",
+      "hash": "3a24aea2f3a5a1f63ffd031befecc4a19a6d632a1f124cb7d49a818906297110"
+    },
+    {
+      "id": "textbook_node_0018_chunk_01",
+      "hash": "ca2be14210ca9e0202531040558cfcb78a24259578b83a52afd4c5caa3350f17"
+    },
+    {
+      "id": "textbook_node_0019_chunk_01",
+      "hash": "464514de1c3da7074d8dd155f0fdc772899e9c99921b14dbe9904076d8286950"
+    },
+    {
+      "id": "textbook_node_0019_chunk_02",
+      "hash": "a39c9d3565dd2d1a6e421ae4acd0bec76002074933ae4589fdd06085e549e557"
+    },
+    {
+      "id": "textbook_node_0019_chunk_03",
+      "hash": "a5d0fb3fc1fe2a6c8c1dd048a8c624add178d6a065201c8c60cac9b4994b4f66"
+    },
+    {
+      "id": "textbook_node_0019_chunk_04",
+      "hash": "8ac86d73bca79fa7bdc11fe0fb37ea70cdecc53c99692f0aff9ed02cb8d490cd"
+    },
+    {
+      "id": "textbook_node_0019_chunk_05",
+      "hash": "13b07692793e129e77276a8527d5e11cd8024504d155124a6d56a606b0d2ca60"
+    },
+    {
+      "id": "textbook_node_0019_chunk_06",
+      "hash": "c52188e93b5f63d7be78ca51d9be4da324ba02bd7bcdc146d0f93e957f7ab82e"
+    },
+    {
+      "id": "textbook_node_0020_chunk_01",
+      "hash": "4734d44a0e4f76a7eab664f9ba2d4cae65ed2b412e2a692ca827adf43d5be037"
+    },
+    {
+      "id": "textbook_node_0020_chunk_02",
+      "hash": "7ddb420bad83ed6d0202f1c6ee1a09bf507a8c6329d7915daced455c0af51a1c"
+    },
+    {
+      "id": "textbook_node_0020_chunk_03",
+      "hash": "4374d8a797a6738e43bfa1bde17c048752cceffa17ea292dbb912b346b981a54"
+    },
+    {
+      "id": "textbook_node_0020_chunk_04",
+      "hash": "b56e93273f29f7a02477eb97860d9108114ad918d40cbf178354aa4a3c6e4181"
+    },
+    {
+      "id": "textbook_node_0020_chunk_05",
+      "hash": "bca027d5231378d0b9226714b4ccbdcfd4dfebc9fcbbd1aaf572aacf4cff30bc"
+    },
+    {
+      "id": "textbook_node_0020_chunk_06",
+      "hash": "83bd1ef1eec01abbace0ddd58574d4d9b7e84bd212b44f5ebce569bc526b873a"
+    },
+    {
+      "id": "textbook_node_0020_chunk_07",
+      "hash": "b0de3f76e96a3c900e0444b2581c7862ff8c2aeed04ae3c5bcd00fe66d9c5772"
+    },
+    {
+      "id": "textbook_node_0021_chunk_01",
+      "hash": "31460e311750f9e0ed54a43268cc8847816dcc61a725c6cde774f5a4a810d2a1"
+    },
+    {
+      "id": "textbook_node_0021_chunk_02",
+      "hash": "e87fe46999ed9b0e5995d4d3d26385673562b08b41981f5b3cf9f8f73acc5f6b"
+    },
+    {
+      "id": "textbook_node_0021_chunk_03",
+      "hash": "a6c4d491a69467c0317ba5d9bb0005689d4b1ec28b117c7efc4224dbac1b6f65"
+    },
+    {
+      "id": "textbook_node_0021_chunk_04",
+      "hash": "01a890202f92bf72352e78874c72c7005823069cc4b44906a4163ad54d34221d"
+    },
+    {
+      "id": "textbook_node_0021_chunk_05",
+      "hash": "8660bd158eb78ac76cf5771ccf974c3c51877060f5914dab8105df31f7bada7c"
+    },
+    {
+      "id": "textbook_node_0021_chunk_06",
+      "hash": "f874e505d05709fc28ec07459e961b26909898b490f0c7cc4009c08e5b91d5b4"
+    },
+    {
+      "id": "textbook_node_0021_chunk_07",
+      "hash": "27d1cbe42720bf700bbde718b425d41c97307545eab8cc9bf37f57dd3517aa0f"
+    },
+    {
+      "id": "textbook_node_0021_chunk_08",
+      "hash": "ef94fd2d06910fdfa5b6d94b34e439a746bc700301f2b10808472c424de3591d"
+    },
+    {
+      "id": "textbook_node_0021_chunk_09",
+      "hash": "a9f5115322ad3c3f3262dc6f06872d4a043861019bd79d1e0b6d19382c3aa294"
+    },
+    {
+      "id": "textbook_node_0021_chunk_10",
+      "hash": "adf26087dcb0b17ffba972337e15363782d6f3957b3513605947484d8d790d60"
+    },
+    {
+      "id": "textbook_node_0021_chunk_11",
+      "hash": "d28d6c5f771ccb03d665a2dd480c156aa372d4d21f89c417191e5a949322824e"
+    },
+    {
+      "id": "textbook_node_0021_chunk_12",
+      "hash": "443ed631ddb75d4a6bd221e106d123d33a498430ce4fe5a10c2354b31a265908"
+    },
+    {
+      "id": "textbook_node_0021_chunk_13",
+      "hash": "454c0a8db8c6832f62fb42e6a054507319ab7414e46d9c56649792385900c54f"
+    },
+    {
+      "id": "textbook_node_0021_chunk_14",
+      "hash": "dfc310fb7e54593dad13382cac0d58f587b1b8e853038538c362e9d68a474cb8"
+    },
+    {
+      "id": "textbook_node_0021_chunk_15",
+      "hash": "1ea434674587ec1cb9c06eb6e4b3f73b916550af1af2f3587b5f4d70df3f25ac"
+    },
+    {
+      "id": "textbook_node_0021_chunk_16",
+      "hash": "1587a6a9044670376a51e42452f84943578e0210c4fb8d923289a4af47b80ca9"
+    },
+    {
+      "id": "textbook_node_0021_chunk_17",
+      "hash": "a6b10bb89357c51f086a9b4deb3d3ba274f843bcb7ecd716fb107fc1e839fa24"
+    },
+    {
+      "id": "textbook_node_0021_chunk_18",
+      "hash": "5c7f5b32c86609a0cf1fc52c0fa5e85724322ee53209bc971ae8f505626d1400"
+    },
+    {
+      "id": "textbook_node_0021_chunk_19",
+      "hash": "71c1a2299631469ac7e0494bceca9e6f610c47a0c50b606408068b7b8ef6ae8d"
+    },
+    {
+      "id": "textbook_node_0022_chunk_01",
+      "hash": "7104aea1706f736cf304af1879730133404af3b793cdddf505ddcd8458e6bffb"
+    },
+    {
+      "id": "textbook_node_0022_chunk_02",
+      "hash": "0e72f86a2c1ac7c4d937e6841c8ed10c69e15f893bd480d9340ed3561c3a1c7e"
+    },
+    {
+      "id": "textbook_node_0022_chunk_03",
+      "hash": "58b7dc4eeca4727f0d9bdc461c56034cef4845912e49da3f7f189e9913b9badd"
+    },
+    {
+      "id": "textbook_node_0022_chunk_04",
+      "hash": "79bf57a24c5e06fced14678407a22f2d2c0b6bbcd28d8bc8e90ccb4a9c222310"
+    },
+    {
+      "id": "textbook_node_0022_chunk_05",
+      "hash": "ddf23258cc47f7f431bd8923fc0ab7caac3248bf432e675755aab5c090b9d8a4"
+    },
+    {
+      "id": "textbook_node_0022_chunk_06",
+      "hash": "c1c7fa4c2dfa795f8e7d30e5c18dff0828ec665a17ea3dd1aedacd57aa36709d"
+    },
+    {
+      "id": "textbook_node_0022_chunk_07",
+      "hash": "9d7f578e1121314e47a8597c916f3c9335b3e5c8477d1faeb850bbbee5ab6719"
+    },
+    {
+      "id": "textbook_node_0023_chunk_01",
+      "hash": "38962d20fe798632e44cc80cc94afe873185cc8b708879e9c3cdf6a74464f34d"
+    },
+    {
+      "id": "textbook_node_0023_chunk_02",
+      "hash": "cacfd4d15ba74e303135906627981f1ba4f5d67d36e4c235000361ebfc07d738"
+    },
+    {
+      "id": "textbook_node_0023_chunk_03",
+      "hash": "f1fcd305335afd6cd592b9b6dbccb8f6de9cd1ba3ac35acfa0b6cc3c71d1a5bd"
+    },
+    {
+      "id": "textbook_node_0023_chunk_04",
+      "hash": "82b49f7426b123825ed2a90960cbc4cc3c25363a2d2aa76dc678b02c6e47326b"
+    },
+    {
+      "id": "textbook_node_0023_chunk_05",
+      "hash": "be7b5fad2a41dd026965b7d17a370d90497a98898c38926986ccecf408fa1962"
+    },
+    {
+      "id": "textbook_node_0023_chunk_06",
+      "hash": "a3a671624bca5239a1f8031528be96be8a62078093ab4168a740a6354dfb79e4"
+    },
+    {
+      "id": "textbook_node_0023_chunk_07",
+      "hash": "20a4b4e796c07f9867b69c211b6ae13caa84ac77109acaceac4046d9af53f4a8"
+    },
+    {
+      "id": "textbook_node_0023_chunk_08",
+      "hash": "e6889735e048ef88011a5a76fdd6408089040a35731c66cdce39e70f9d8c551d"
+    },
+    {
+      "id": "textbook_node_0023_chunk_09",
+      "hash": "7ad01ecceccf4f396d0ee9078b4f459cb6764eef913725f67ab86834345501ba"
+    },
+    {
+      "id": "textbook_node_0024_chunk_01",
+      "hash": "a93b2a6f0c92769d87f18adab4d12a83e03f63d0ddab2ebb55d2ee6539b74bb7"
+    },
+    {
+      "id": "textbook_node_0025_chunk_01",
+      "hash": "8d745839116cea2ae477d2392fd449498a8f80a0eef6e6cbc9f16cf6920ce7ba"
+    },
+    {
+      "id": "synthesis_node_0001_chunk_01",
+      "hash": "fb18cded873c27f73882f756f7d18d7f76d462652c4ac40bb38de51a4c3fdd03"
+    },
+    {
+      "id": "synthesis_node_0002_chunk_01",
+      "hash": "c6cbc8149230d2f16a78c10eba5e5989fb8e5087bcdac27e7e295c912465ee5a"
+    },
+    {
+      "id": "synthesis_node_0003_chunk_01",
+      "hash": "e7b93cf0b3422fd350a2273a348d6d52f7a7a8bed7011a6b79df2c616f24ec10"
+    },
+    {
+      "id": "synthesis_node_0004_chunk_01",
+      "hash": "9f9d618852e2397a106a9700a137cc2769057489489dd16244e1f7e1a16ae795"
+    },
+    {
+      "id": "synthesis_node_0005_chunk_01",
+      "hash": "519f85313c12cbea0479164027302b1b517236b8847bbe864b712ff22d49d860"
+    },
+    {
+      "id": "synthesis_node_0005_chunk_02",
+      "hash": "f319f590168caea8ad0a1523035f7893861ca73b7e4cf28bb1083d12667cc6ec"
+    },
+    {
+      "id": "synthesis_node_0006_chunk_01",
+      "hash": "14c48b0783f747290a047fbdbc9462d8ff86a5d40abfb2eafa1bdbb8c30530f0"
+    },
+    {
+      "id": "synthesis_node_0006_chunk_02",
+      "hash": "73fd698089d5f5f4f4fa34a972ce2577d4f49227729e98b76265b2bab4d6df03"
+    },
+    {
+      "id": "synthesis_node_0007_chunk_01",
+      "hash": "c9c2174c90ab143505d9516771e20cf7192eaf050e8096b63049b58421d0a3c9"
+    },
+    {
+      "id": "synthesis_node_0008_chunk_01",
+      "hash": "0f8506496a67a2b571a37f98b65c08fea4e47948fac5dddd5bacc724722667bc"
+    },
+    {
+      "id": "policy_node_0001_chunk_01",
+      "hash": "bf5f1fe2f8fd2b7ffd902549e8022da1cbd43b920dee0056d538b54a3ba438fb"
+    },
+    {
+      "id": "policy_node_0002_chunk_01",
+      "hash": "d46086281b48e4e9e6432d4e273425b064483db7d6e9c0cf34a77b9ba2094304"
+    }
+  ]
+}
