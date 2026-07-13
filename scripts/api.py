@@ -17,10 +17,17 @@ ROOT_DIR = Path(__file__).resolve().parents[1]
 if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
-from scripts import config
-from scripts.chat import build_messages, call_llm, temperature_for_mode
+from scripts import config, guard
+from scripts.chat import (
+    build_messages,
+    call_llm,
+    in_scope,
+    sources_for_answer,
+    stream_without_sources,
+    temperature_for_mode,
+)
 from scripts.quiz import generate_flashcards, generate_quiz, grade_answer
-from scripts.retrieve import hybrid_retrieve, load_chunks, load_parents
+from scripts.retrieve import load_chunks, load_parents, retrieve_with_relevance
 from scripts.summarize import list_scopes, summarize_stream
 
 
@@ -90,14 +97,46 @@ def chat(request: ChatRequest) -> StreamingResponse:
     def event_stream() -> Iterator[str]:
         contexts = []
         try:
+            history = [item.model_dump() for item in request.history[-6:]]
+
+            # 1) Chốt chặn đầu vào (injection/rỗng/mơ hồ) trước khi tốn retrieval.
+            if config.TRIAGE_ENABLED:
+                verdict = guard.triage(request.question, history=history, pinned=request.pinned)
+                if verdict:
+                    yield sse({"type": "status", "message": "guard"})
+                    yield sse({"type": "token", "token": verdict["text"]})
+                    yield sse({"type": "done"}, event="done")
+                    return
+
             yield sse({"type": "status", "message": "retrieving"})
             # Pinned slide text steers retrieval too, so the corpus passages we
             # fetch are about the exact sentence the user highlighted.
             retrieval_query = request.question
             if request.pinned and request.pinned.strip():
                 retrieval_query = f"{request.question}\n{request.pinned.strip()}"
-            contexts = hybrid_retrieve(retrieval_query)
-            history = [item.model_dump() for item in request.history[-6:]]
+            contexts, relevance = retrieve_with_relevance(retrieval_query)
+
+            # 2) Cổng liên quan: corpus nhỏ luôn trả top_k, nên nếu không đoạn nào
+            # đủ gần thì từ chối thay vì để model biến chunk ngẫu nhiên thành bài giảng.
+            if config.ABSTAIN_ENABLED and relevance < config.RELEVANCE_MIN:
+                yield sse({"type": "status", "message": "abstain"})
+                yield sse({"type": "token", "token": guard.OUT_OF_CORPUS_TEXT})
+                yield sse({"type": "done"}, event="done")
+                return
+
+            # 2b) Vùng xám: embedding không tách được câu cùng miền nhưng ngoài chủ đề
+            # (vd giá trị thặng dư). Nhờ classifier đọc ngữ cảnh để quyết định (P3).
+            if (
+                config.ABSTAIN_ENABLED
+                and config.SCOPE_CLASSIFIER_ENABLED
+                and relevance < config.RELEVANCE_MAX
+                and not in_scope(request.question, contexts)
+            ):
+                yield sse({"type": "status", "message": "abstain"})
+                yield sse({"type": "token", "token": guard.OUT_OF_TOPIC_TEXT})
+                yield sse({"type": "done"}, event="done")
+                return
+
             messages = build_messages(
                 request.question,
                 contexts,
@@ -106,8 +145,16 @@ def chat(request: ChatRequest) -> StreamingResponse:
                 pinned=request.pinned,
             )
             yield sse({"type": "status", "message": "streaming"})
-            for token in call_llm(messages, stream=True, temperature=temperature_for_mode(request.mode)):
+            chunks: list[str] = []
+            # stream_without_sources cắt bỏ mục "Nguồn" mà model có thể tự viết, để chỉ
+            # còn duy nhất danh sách nguồn do code dựng ở dưới (tránh hai mục trùng nhau).
+            stream = call_llm(messages, stream=True, temperature=temperature_for_mode(request.mode))
+            for token in stream_without_sources(stream):
+                chunks.append(token)
                 yield sse({"type": "token", "token": token})
+            # 3) Mục "Nguồn" khớp nội dung: câu từ chối -> "Không có", còn lại dựng từ
+            # metadata các đoạn đã truy hồi (giới hạn số nguồn, không đổ toàn bộ top-k).
+            yield sse({"type": "token", "token": "\n\n" + sources_for_answer("".join(chunks), contexts)})
             yield sse({"type": "done"}, event="done")
         except Exception as exc:  # noqa: BLE001 - send API errors as SSE so the UI can render them
             yield sse({"type": "error", "message": str(exc)}, event="error")

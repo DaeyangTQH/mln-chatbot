@@ -33,6 +33,10 @@ class Candidate:
     score: float
     source: str
     chunk: dict[str, Any]
+    # Raw dense cosine similarity to the query, kept separate from `score` so
+    # that rrf_fuse/rerank (which overwrite `score`) don't destroy the signal we
+    # use for the abstention gate. 0.0 for candidates that came only from BM25.
+    dense_cosine: float = 0.0
 
 
 def count_tokens(text: str) -> int:
@@ -126,7 +130,10 @@ def dense_search(
             continue
         if where and any(chunk.get(key) != value for key, value in where.items()):
             continue
-        candidates.append(Candidate(chunk_id=chunk_id, score=float(scores[int(idx)]), source="dense", chunk=chunk))
+        cosine = float(scores[int(idx)])
+        candidates.append(
+            Candidate(chunk_id=chunk_id, score=cosine, source="dense", chunk=chunk, dense_cosine=cosine)
+        )
         if len(candidates) >= n:
             break
     return candidates
@@ -380,19 +387,38 @@ def expand_small_to_big(
     return contexts
 
 
+def retrieve_with_relevance(
+    query: str,
+    top_k: int = config.TOP_K,
+    where: dict[str, Any] | None = None,
+) -> tuple[list[dict[str, Any]], float]:
+    """Run the hybrid pipeline and also return a relevance signal.
+
+    `relevance` is the highest dense cosine similarity between the query and any
+    corpus chunk (computed before RRF fusion, which would otherwise overwrite the
+    score). It answers "does the corpus contain anything close to this query?" and
+    drives the abstention gate in the chat endpoint. It is NOT the RRF score.
+    """
+
+    chunks_by_id = load_chunks()
+    parents = load_parents()
+    dense = dense_search(query, chunks_by_id, where=where)
+    sparse = sparse_search(query, chunks_by_id)
+    relevance = max((c.dense_cosine for c in dense), default=0.0)
+    fused = rrf_fuse(dense, sparse)
+    ranked = rerank(query, fused, top_k=top_k)
+    selected = diversify(ranked, top_k=top_k)
+    contexts = expand_small_to_big(selected, parents, chunks_by_id)
+    return contexts, relevance
+
+
 def hybrid_retrieve(
     query: str,
     top_k: int = config.TOP_K,
     where: dict[str, Any] | None = None,
 ) -> list[dict[str, Any]]:
-    chunks_by_id = load_chunks()
-    parents = load_parents()
-    dense = dense_search(query, chunks_by_id, where=where)
-    sparse = sparse_search(query, chunks_by_id)
-    fused = rrf_fuse(dense, sparse)
-    ranked = rerank(query, fused, top_k=top_k)
-    selected = diversify(ranked, top_k=top_k)
-    return expand_small_to_big(selected, parents, chunks_by_id)
+    contexts, _ = retrieve_with_relevance(query, top_k=top_k, where=where)
+    return contexts
 
 
 def format_source(context: dict[str, Any]) -> str:

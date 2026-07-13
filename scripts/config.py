@@ -75,6 +75,24 @@ TOP_K = int(os.getenv("RAG_TOP_K", "6"))
 # Cap synthesis chunks in the final context so the (broad, on-topic) summary
 # does not crowd out primary textbook pages and policy sources.
 SYNTHESIS_MAX = int(os.getenv("RAG_SYNTHESIS_MAX", "2"))
+
+# --- Abstention / input guarding (behavioural safety) ---
+# The corpus is small, so retrieval ALWAYS returns top_k chunks even for an
+# off-corpus or nonsense query. Without a gate the model turns those "least bad"
+# chunks into a confident answer. RELEVANCE_MIN is a floor on the top dense
+# cosine similarity to the corpus: below it, /api/chat refuses instead of
+# answering. Calibrated on eval/style_cases.jsonl (positive vs out-of-corpus
+# groups). ABSTAIN_ENABLED / TRIAGE_ENABLED let us toggle the guards for A/B.
+ABSTAIN_ENABLED = os.getenv("RAG_ABSTAIN_ENABLED", "1") == "1"
+RELEVANCE_MIN = float(os.getenv("RAG_RELEVANCE_MIN", "0.34"))
+TRIAGE_ENABLED = os.getenv("RAG_TRIAGE_ENABLED", "1") == "1"
+# Gray zone [RELEVANCE_MIN, RELEVANCE_MAX): cosine can't separate same-domain but
+# off-corpus questions (e.g. surplus value) from in-corpus ones. For queries that
+# land here, an LLM scope-classifier reads the retrieved passages and decides
+# whether they actually answer the question; below MIN we hard-abstain, above MAX
+# we always answer (no extra call). Fail-open: classifier errors default to answer.
+RELEVANCE_MAX = float(os.getenv("RAG_RELEVANCE_MAX", "0.62"))
+SCOPE_CLASSIFIER_ENABLED = os.getenv("RAG_SCOPE_CLASSIFIER", "1") == "1"
 # Total budget for all context passed to the LLM.
 CONTEXT_TOKEN_CAP = int(os.getenv("RAG_CONTEXT_TOKEN_CAP", "6000"))
 # Max size of a single parent section to expand to (small-to-big). If a parent
