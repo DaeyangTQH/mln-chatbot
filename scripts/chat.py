@@ -29,8 +29,8 @@ MODE_INSTRUCTIONS = {
         "Giữ giọng khơi gợi, không giảng giải một chiều. Vẫn bám sát ngữ cảnh và trích nguồn."
     ),
     "debate": (
-        "PHẢN BIỆN HỌC THUẬT — BẮT BUỘC trình bày theo đúng 4 mục sau, mỗi mục có tiêu đề in đậm: "
-        "**Luận điểm ủng hộ**, **Điểm yếu & phản biện**, **Điều kiện áp dụng**, **Rủi ro hiểu sai**. "
+        "PHẢN BIỆN HỌC THUẬT — BẮT BUỘC trình bày theo đúng 4 mục sau: "
+        "Luận điểm ủng hộ, Điểm yếu & phản biện, Điều kiện áp dụng, Rủi ro hiểu sai. "
         "Nêu cân bằng cả hai chiều, không thiên vị. Vẫn bám sát ngữ cảnh và trích nguồn."
     ),
 }
@@ -82,11 +82,17 @@ def system_prompt_for_mode(mode: str = "default") -> str:
 
 Chỉ trả lời dựa trên ngữ cảnh được cung cấp. Nếu câu hỏi vượt ngoài corpus, nói rõ phần nào chưa có trong corpus.
 Trả lời bằng tiếng Việt, có cấu trúc vừa đủ, không bịa nguồn.
+Chỉ xuất văn bản thuần (plain text). Không dùng cú pháp Markdown như **, *, #, backtick hoặc bảng Markdown.
 
 Chế độ trả lời:
 {instruction}
 
-QUY TẮC TRÍCH DẪN (bắt buộc):
+QUY TẮC VỀ NGUỒN:
+- Luôn kết thúc bằng mục "Nguồn" thật ngắn, tối đa 2-3 dòng và chỉ liệt kê nguồn thực sự dùng.
+- Không chèn nhãn "(Nguồn N)" hoặc trích dẫn nguồn xen giữa phần trả lời; chỉ ghi nguồn ở mục cuối.
+- Với giáo trình, chỉ ghi tên rút gọn, chương và trang; ví dụ: "- Giáo trình, Chương 2, tr.53-68".
+- Với văn bản pháp luật, chỉ ghi tên/số hiệu văn bản và điều; không chép URL hay tiêu đề đoạn dài.
+- Không ghi lại tên đề mục, subsection hoặc nội dung trích đoạn trong danh sách nguồn.
 - Mỗi đoạn ngữ cảnh bên dưới có nhãn "[Nguồn N] ...". Chỉ được trích đúng thông tin nguồn ghi trong nhãn đó.
 - TUYỆT ĐỐI không tự ghi số trang giáo trình nếu trang đó không xuất hiện ở nhãn [Nguồn N] nào.
 - Nếu thông tin lấy từ "Bản tổng hợp RAG" (nhãn không có số trang), hãy trích đúng "(Bản tổng hợp RAG)", KHÔNG suy ra số trang giáo trình từ nội dung bản tổng hợp.
@@ -119,10 +125,13 @@ def build_messages(
 Ngữ cảnh truy hồi:
 {context_block(contexts)}
 
-Hãy trả lời câu hỏi dựa trên ngữ cảnh trên. Kết thúc bằng mục "Nguồn đã dùng" liệt kê các nguồn chính.
+Hãy trả lời câu hỏi dựa trên ngữ cảnh trên.
+Cuối câu trả lời, thêm mục "Nguồn" gồm tối đa 2-3 dòng ngắn. Chỉ ghi tên nguồn rút gọn, chương/trang hoặc điều luật; không sao chép tiêu đề đề mục dài từ nhãn [Nguồn N].
 
 YÊU CẦU VỀ CÁCH TRẢ LỜI (BẮT BUỘC theo đúng chế độ đã chọn, đặt lên trên mọi thói quen định dạng khác):
-{instruction}"""
+{instruction}
+
+Chỉ trả về văn bản thuần; tuyệt đối không dùng dấu ** để in đậm."""
 
     messages: list[dict[str, str]] = [{"role": "system", "content": system_prompt_for_mode(mode)}]
     if history:
@@ -147,12 +156,28 @@ def call_llm(
         )
 
         def deltas() -> Iterator[str]:
+            pending_star = False
             for chunk in response:
                 if not chunk.choices:
                     continue
                 delta = chunk.choices[0].delta.content
                 if delta:
-                    yield delta
+                    output: list[str] = []
+                    for char in delta:
+                        if char == "*":
+                            if pending_star:
+                                pending_star = False
+                            else:
+                                pending_star = True
+                            continue
+                        if pending_star:
+                            output.append("*")
+                            pending_star = False
+                        output.append(char)
+                    if output:
+                        yield "".join(output)
+            if pending_star:
+                yield "*"
 
         return deltas()
 
@@ -163,7 +188,7 @@ def call_llm(
             messages=messages,
         )
     )
-    return response.choices[0].message.content or ""
+    return (response.choices[0].message.content or "").replace("**", "")
 
 
 def answer(

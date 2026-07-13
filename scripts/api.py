@@ -18,9 +18,9 @@ if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
 from scripts import config
-from scripts.chat import build_messages, call_llm, temperature_for_mode, verify_citations
+from scripts.chat import build_messages, call_llm, temperature_for_mode
 from scripts.quiz import generate_flashcards, generate_quiz, grade_answer
-from scripts.retrieve import format_source, hybrid_retrieve, load_chunks, load_parents
+from scripts.retrieve import hybrid_retrieve, load_chunks, load_parents
 from scripts.summarize import list_scopes, summarize_stream
 
 
@@ -89,7 +89,6 @@ def health() -> dict:
 def chat(request: ChatRequest) -> StreamingResponse:
     def event_stream() -> Iterator[str]:
         contexts = []
-        answer_parts: list[str] = []
         try:
             yield sse({"type": "status", "message": "retrieving"})
             # Pinned slide text steers retrieval too, so the corpus passages we
@@ -108,22 +107,7 @@ def chat(request: ChatRequest) -> StreamingResponse:
             )
             yield sse({"type": "status", "message": "streaming"})
             for token in call_llm(messages, stream=True, temperature=temperature_for_mode(request.mode)):
-                answer_parts.append(token)
                 yield sse({"type": "token", "token": token})
-
-            answer_text = "".join(answer_parts)
-            sources = [
-                {
-                    "label": format_source(context),
-                    "source_type": context.get("source_type"),
-                    "source_url": context.get("source_url"),
-                    "page_start": context.get("page_start"),
-                    "page_end": context.get("page_end"),
-                }
-                for context in contexts
-            ]
-            warnings = verify_citations(answer_text, contexts)
-            yield sse({"type": "sources", "sources": sources, "warnings": warnings}, event="sources")
             yield sse({"type": "done"}, event="done")
         except Exception as exc:  # noqa: BLE001 - send API errors as SSE so the UI can render them
             yield sse({"type": "error", "message": str(exc)}, event="error")
