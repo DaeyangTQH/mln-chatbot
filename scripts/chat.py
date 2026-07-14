@@ -23,7 +23,8 @@ MODE_INSTRUCTIONS = {
         "GIẢNG GIẢI NHƯ MỘT NHÀ TRIẾT HỌC: mở đầu bằng cách nêu bản chất/vấn đề cốt lõi, "
         "rồi phân tích theo lối biện chứng — chỉ ra mâu thuẫn, quan hệ nguyên nhân - kết quả, "
         "sự vận động của sự vật — sau đó khái quát thành một nhận định đọng lại. Giọng điềm đạm, "
-        "dẫn dắt người học suy nghĩ, ưu tiên chiều sâu bản chất hơn là liệt kê rời rạc. "
+        "dẫn dắt người học suy nghĩ, ưu tiên chiều sâu bản chất. Phần bản chất trình bày dạng văn xuôi; "
+        "khi có nhiều ý song song (đặc điểm, nguyên nhân, phân loại) thì tách thành gạch đầu dòng cho dễ theo dõi. "
         "Trình bày mạch lạc trong khoảng 3-4 ý, KHÔNG hoa mỹ lê thê, không lan man. Bám sát ngữ cảnh."
     ),
     "socratic": (
@@ -103,6 +104,12 @@ CÁCH DIỄN ĐẠT:
 - Nếu câu hỏi chứa tiền đề SAI so với ngữ cảnh, hãy chỉ ra tiền đề đó chưa chính xác TRƯỚC khi giải thích, không mặc nhiên chấp nhận.
 - Nếu người dùng nói "bạn vừa nói...", "bạn vừa xác nhận...", "dựa trên điều bạn đã đồng ý...", hãy ĐỐI CHIẾU với lịch sử hội thoại. Nếu bạn chưa từng nói vậy hoặc điều đó sai, phải nêu rõ "tôi chưa xác nhận điều đó" TRƯỚC, tuyệt đối không mặc nhiên khai triển theo hướng người dùng gài.
 - Với câu hỏi mơ hồ hoặc thiếu đối tượng cụ thể, hãy hỏi lại cho rõ thay vì tự đoán rồi trả lời.
+- Với câu VẬN DỤNG (dùng ví dụ đời thực như Grab, Uber, sáp nhập doanh nghiệp... để soi chiếu lý luận độc quyền), hãy DÙNG lý luận trong ngữ cảnh để phân tích ví dụ đó, ngay cả khi ngữ cảnh không nhắc đích danh doanh nghiệp. Được phép nêu bản chất/quy luật (tập trung tư bản, quyền lực thị trường...) áp vào ví dụ; nhưng TUYỆT ĐỐI không bịa số liệu, thị phần, doanh thu, mốc thời gian hay dữ kiện cụ thể về doanh nghiệp nếu ngữ cảnh không có — với dữ kiện đó hãy nói rõ là chưa có trong tài liệu.
+
+ĐỊNH DẠNG:
+- Khi câu trả lời có từ 3 ý SONG SONG trở lên (liệt kê đặc điểm, nguyên nhân, phân loại, ưu/nhược, các bước...), hãy trình bày thành các dòng gạch đầu dòng, mỗi ý một dòng bắt đầu bằng dấu "- " (không dùng *, không dùng số thứ tự trừ chế độ Socratic). Mỗi ý một câu ngắn gọn.
+- Với phần nêu bản chất/định nghĩa hoặc phân tích biện chứng (mâu thuẫn, nguyên nhân - kết quả), giữ dạng văn xuôi mạch lạc, KHÔNG bẻ vụn thành gạch đầu dòng.
+- Có thể kết hợp: mở đầu bằng một đoạn văn xuôi nêu bản chất, rồi liệt kê các ý chi tiết bằng gạch đầu dòng nếu phù hợp.
 
 YÊU CẦU NGUYÊN VĂN / METADATA:
 - Nếu người dùng đòi trích NGUYÊN VĂN, số trang/số dòng chính xác, tên tác giả của câu, hoặc metadata như ISBN, nhà xuất bản, năm, số hiệu văn bản, ngày ban hành — mà ngữ cảnh KHÔNG chứa đúng thông tin đó — hãy nói rõ không thể xác nhận chính xác phần này; có thể tóm tắt ý nhưng KHÔNG trình bày như thể đã trích dẫn/xác minh nguyên văn.
@@ -124,11 +131,15 @@ _SCOPE_CLASSIFIER_SYSTEM = (
     "nhà nước, độc quyền tự nhiên, nguyên nhân/đặc điểm/tác động của độc quyền, tích tụ và "
     "tập trung tư bản, xuất khẩu tư bản; và (2) một số văn bản pháp luật về điện, nước ở Việt Nam.\n"
     "Nhiệm vụ: xét CHỦ ĐỀ CỐT LÕI của câu hỏi có thuộc hai nhóm trên không — BẤT KỂ câu hỏi có "
-    "chứa tiền đề sai, hỏi xoáy hay yêu cầu phản biện.\n"
+    "chứa tiền đề sai, hỏi xoáy, yêu cầu phản biện, hay lấy ví dụ đời thực.\n"
     "- Câu xoay quanh độc quyền hoặc điện/nước (kể cả khi tiền đề sai và cần bác bỏ) -> in_scope=true.\n"
+    "- Câu dùng MỘT DOANH NGHIỆP/VÍ DỤ ĐỜI THỰC (Grab, Uber, EVN, xăng dầu, hàng không...) để hỏi "
+    "về HIỆN TƯỢNG độc quyền, cạnh tranh, tập trung/tích tụ tư bản, sáp nhập, quyền lực thị trường "
+    "-> in_scope=true (đây là câu VẬN DỤNG, hãy dùng lý luận để phân tích).\n"
     "- Câu thực chất về chủ đề KHÁC — dù vẫn là Mác-Lênin/kinh tế (giá trị thặng dư, phép biện chứng, "
-    "địa tô, tiền công, hình thái kinh tế - xã hội...) hay ngoài môn (crypto, doanh nghiệp cụ thể "
-    "ngoài giáo trình, toán, thời sự...) -> in_scope=false.\n"
+    "địa tô, tiền công, hình thái kinh tế - xã hội...) hay ngoài môn (crypto, toán, thời sự) hoặc chỉ "
+    "hỏi thông tin RIÊNG của doanh nghiệp không liên quan độc quyền (doanh thu, cổ phiếu, lịch sử công "
+    "ty...) -> in_scope=false.\n"
     'Chỉ trả JSON: {"in_scope": true|false}.'
 )
 
@@ -237,37 +248,44 @@ _NO_EVIDENCE_MARKERS = (
 _MAX_SOURCES = 3
 
 
-def build_sources_block(contexts: list[dict[str, Any]]) -> str:
-    """Dựng mục "Nguồn" bằng code từ đúng các đoạn đã truy hồi.
+# Nguồn KHÔNG được coi là nguồn trích dẫn thực: bản tổng hợp RAG (nội dung phái sinh,
+# không phải tài liệu gốc). Chỉ giữ nguồn sơ cấp: giáo trình (Chương/tr.), văn bản pháp
+# luật (Luật/QĐ/Điều) và ví dụ minh họa đã kiểm duyệt.
+_NON_CITABLE_SOURCE_TYPES = {"synthesis"}
 
-    Model không được tự viết nguồn nữa, nên số trang/điều luật ở đây luôn có căn cứ.
-    Nếu đã có nguồn sơ cấp (giáo trình/pháp luật) thì ẩn "Tổng hợp nội bộ" cho gọn, và
-    chỉ giữ tối đa _MAX_SOURCES mục để không đổ toàn bộ top-k.
+
+def build_sources_block(contexts: list[dict[str, Any]]) -> str:
+    """Dựng mục "Nguồn" chỉ từ các nguồn sơ cấp thực đã truy hồi.
+
+    Bỏ hẳn "Bản tổng hợp RAG" (source_type=synthesis) vì đó là nội dung phái sinh, không
+    phải nguồn trích dẫn. Chỉ giữ tối đa _MAX_SOURCES mục. Nếu không còn nguồn thực nào,
+    trả về "" để caller BỎ LUÔN mục "Nguồn" thay vì hiển thị "Không có".
     """
 
     seen: list[str] = []
     for context in contexts:
+        if context.get("source_type") in _NON_CITABLE_SOURCE_TYPES:
+            continue
         citation = _short_citation(context)
         if citation and citation not in seen:
             seen.append(citation)
-    primary = [s for s in seen if s != "Tổng hợp nội bộ"]
-    final = (primary or seen)[:_MAX_SOURCES]
+    final = seen[:_MAX_SOURCES]
     if not final:
-        return "Nguồn: Không có."
+        return ""
     return "Nguồn:\n" + "\n".join(f"- {s}" for s in final)
 
 
 def sources_for_answer(answer_text: str, contexts: list[dict[str, Any]]) -> str:
     """Chọn mục "Nguồn" phù hợp với NỘI DUNG câu trả lời.
 
-    Nếu câu trả lời thực chất là từ chối / báo "không có / không liên quan" thì KHÔNG
-    đính kèm trang giáo trình (vốn gây cảm giác trích dẫn giả). Ngược lại dựng nguồn
-    bình thường từ các đoạn đã truy hồi.
+    Trả "" (KHÔNG có mục Nguồn) khi câu trả lời thực chất là từ chối / báo "không có",
+    hoặc khi không còn nguồn sơ cấp nào sau khi lọc. Caller chỉ đính kèm mục "Nguồn" khi
+    chuỗi trả về khác rỗng.
     """
 
     low = answer_text.lower()
     if any(marker in low for marker in _NO_EVIDENCE_MARKERS):
-        return "Nguồn: Không có."
+        return ""
     return build_sources_block(contexts)
 
 
@@ -387,6 +405,11 @@ def answer(
         if verdict:
             return verdict["text"], []
 
+    # 1b) Câu hỏi vui/meta về chatbot & website -> trả lời cố định, bỏ qua RAG.
+    meta = guard.meta_response(question)
+    if meta:
+        return meta["text"], []
+
     # 2) Cổng liên quan: nếu corpus không có gì đủ gần thì từ chối thay vì bịa.
     contexts, relevance = retrieve_with_relevance(question)
     if config.ABSTAIN_ENABLED and relevance < config.RELEVANCE_MIN:
@@ -405,7 +428,9 @@ def answer(
     # 3) Mục "Nguồn" khớp nội dung: nếu là câu từ chối thì "Không có", nếu không thì
     # dựng từ metadata các đoạn đã truy hồi (không để model tự chế trang).
     answer_text = strip_model_sources(str(text).strip()).strip()
-    return f"{answer_text}\n\n{sources_for_answer(answer_text, contexts)}", contexts
+    sources = sources_for_answer(answer_text, contexts)
+    full = f"{answer_text}\n\n{sources}" if sources else answer_text
+    return full, contexts
 
 
 def verify_citations(text: str, contexts: list[dict[str, Any]]) -> list[str]:

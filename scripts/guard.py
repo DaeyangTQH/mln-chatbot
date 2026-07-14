@@ -14,14 +14,13 @@ from __future__ import annotations
 import re
 from typing import Any
 
-# Câu trả lời cố định cho từng loại chặn. Kết bằng "Nguồn: Không có." cho nhất quán.
-_NO_SOURCE = "Nguồn: Không có."
+# Câu trả lời cố định cho từng loại chặn — KHÔNG kèm mục "Nguồn" (không có nguồn để trích).
 
 # Ngoài KHO TÀI LIỆU hoàn toàn (thời tiết, lập trình, lịch sử...) — cổng relevance thấp.
 OUT_OF_CORPUS_TEXT = (
     "Nội dung này không có trong kho tài liệu tôi được cung cấp (chỉ gồm chủ đề độc quyền "
     "trong Kinh tế chính trị Mác - Lênin và các văn bản điện, nước ở Việt Nam). "
-    "Bạn thử hỏi một câu thuộc phạm vi đó nhé.\n\n" + _NO_SOURCE
+    "Bạn thử hỏi một câu thuộc phạm vi đó nhé."
 )
 
 # Thuộc môn/kinh tế nhưng NGOÀI CHỦ ĐỀ độc quyền (giá trị thặng dư, địa tô...) — classifier loại.
@@ -29,19 +28,19 @@ OUT_OF_TOPIC_TEXT = (
     "Câu hỏi này nằm ngoài phạm vi chủ đề tôi phụ trách. Kho tài liệu hiện chỉ bao gồm phần "
     "độc quyền trong Kinh tế chính trị Mác - Lênin (cạnh tranh và độc quyền, độc quyền nhà "
     "nước, tích tụ/tập trung tư bản, xuất khẩu tư bản...) cùng một số văn bản điện, nước. "
-    "Bạn hỏi trong phạm vi này nhé.\n\n" + _NO_SOURCE
+    "Bạn hỏi trong phạm vi này nhé."
 )
 
 CLARIFY_TEXT = (
     "Tôi chưa rõ bạn muốn hỏi gì. Bạn nêu cụ thể câu hỏi về chủ đề độc quyền "
     "(khái niệm, nguyên nhân, đặc điểm, độc quyền nhà nước, hay vận dụng ở Việt Nam...) "
-    "để tôi hỗ trợ chính xác nhé.\n\n" + _NO_SOURCE
+    "để tôi hỗ trợ chính xác nhé."
 )
 
 INJECTION_TEXT = (
     "Tôi không thể làm theo yêu cầu thay đổi vai trò, tiết lộ hướng dẫn hệ thống, "
     "hoặc bỏ qua các quy tắc trả lời. Bạn có thể đặt câu hỏi về chủ đề độc quyền trong "
-    "môn Kinh tế chính trị Mác - Lênin.\n\n" + _NO_SOURCE
+    "môn Kinh tế chính trị Mác - Lênin."
 )
 
 # Nguyên âm tiếng Việt (kể cả có dấu) + a,e,i,o,u,y — dùng để phát hiện gõ loạn phím.
@@ -117,6 +116,79 @@ def _orphan_pronoun(question: str) -> bool:
         or re.search(r"\b(cái đó|cái này|điều đó|hai cái đó|thứ đó|mấy cái đó)\b", low)
     )
     return has_pronoun and len(low.split()) <= 12
+
+
+# --- FAQ / câu hỏi vui về chatbot & website ---
+# Những câu này KHÔNG đi qua RAG: chúng là thông tin cố định về nhóm/website, nên trả
+# lời bằng template thay vì để cổng relevance chặn nhầm. Regex cố ý HẸP (bắt buộc có từ
+# khóa web/website/nhóm/chatbot/bạn) để không nuốt nhầm câu học thật kiểu "mục tiêu của
+# độc quyền nhà nước" hay "chủ đề độc quyền".
+#
+# TODO(nhóm): thay các chỗ «...» bằng thông tin thật rồi bỏ dấu ngoặc.
+_META_INTRO = (
+    "Mình là trợ giảng ảo của website học phần Kinh tế chính trị Mác - Lênin (MLN121), "
+    "chuyên hỗ trợ ôn tập chủ đề độc quyền và độc quyền nhà nước. Bạn có thể hỏi mình về "
+    "khái niệm, nguyên nhân, đặc điểm của độc quyền, hoặc phần vận dụng ở Việt Nam nhé."
+)
+
+_META_GROUP = (
+    "Mình được xây dựng bởi nhóm 6, gồm các thành viên cực đẳng cấp. "
+    "Đây là dự án học phần Kinh tế chính trị Mác - Lênin (MLN121)."
+)
+
+_META_TOPIC = (
+    "Chủ đề của nhóm là ĐỘC QUYỀN trong Kinh tế chính trị Mác - Lênin: cạnh tranh và độc "
+    "quyền, độc quyền nhà nước, nguyên nhân và đặc điểm của độc quyền, cùng phần vận dụng "
+    "vào ngành điện, nước ở Việt Nam."
+)
+
+_META_GOAL = (
+    "Website được lập ra để giúp sinh viên học và ôn tập chủ đề độc quyền trong môn Kinh tế "
+    "chính trị Mác - Lênin một cách trực quan: đọc nội dung theo từng chương, tra cứu nhanh "
+    "bằng chatbot, và tự kiểm tra qua quiz/flashcard. «bổ sung mục tiêu cụ thể của nhóm nếu có»."
+)
+
+_META_SOURCES = (
+    "Nội dung website dựa trên Giáo trình Kinh tế chính trị Mác - Lênin (Bộ Giáo dục và Đào "
+    "tạo, 2021), kết hợp một số văn bản pháp luật hiện hành về điện và nước ở Việt Nam (ví dụ "
+    "Luật Điện lực 2024, văn bản về cấp nước sạch). Chatbot chỉ trả lời dựa trên các nguồn này."
+)
+
+_META_SECTIONS = (
+    "Website gồm phần giới thiệu và các chương nội dung về độc quyền: khái niệm và nguyên nhân "
+    "hình thành độc quyền, độc quyền nhà nước, các lĩnh vực/ngành liên quan, phần tranh luận - "
+    "phản biện, và phần vận dụng ở Việt Nam. Ngoài ra có công cụ tóm tắt, quiz, flashcard và "
+    "chatbot hỏi đáp."
+)
+
+# Mỗi mục: (regex, câu trả lời). Xét theo thứ tự, khớp cái đầu tiên là dừng.
+_META_PATTERNS: list[tuple[str, str]] = [
+    (r"\b(bạn|em|chatbot|bot|trợ giảng)\b.{0,20}\b(là ai|là gì|tên (gì|là gì))"
+     r"|\bgiới thiệu\b.{0,15}\b(bản thân|về (bạn|mình|chatbot|bot))\b"
+     r"|\bbạn\b.{0,10}\btự giới thiệu\b", _META_INTRO),
+    (r"\bnhóm\b.{0,15}\b(nào|mấy|số mấy|tên (gì|là gì)|là ai|gồm (những )?ai|bao nhiêu (người|thành viên))"
+     r"|\b(thành viên|ai làm|ai xây dựng|ai tạo)\b.{0,15}\bnhóm\b", _META_GROUP),
+    (r"\bchủ đề\b.{0,15}\b(của )?(nhóm|website|web|trang|dự án|các bạn|nhóm bạn)"
+     r"|\bđề tài\b.{0,15}\b(của )?(nhóm|các bạn|nhóm bạn|website|web)", _META_TOPIC),
+    (r"\bmục (tiêu|đích)\b.{0,15}\b(của )?(website|web|trang|dự án|nhóm|các bạn)"
+     r"|\b(website|web|trang|dự án)\b.{0,10}\b(để làm gì|nhằm|lập ra|tạo ra để)", _META_GOAL),
+    (r"\b(nguồn|tài liệu|dữ liệu)\b.{0,25}\b(website|web|trang|lấy từ đâu|từ đâu|ở đâu|dựa (trên|vào))"
+     r"|\btài liệu\b.{0,10}\blấy\b", _META_SOURCES),
+    (r"\b(website|web|trang)\b.{0,25}\b(phần nào|những phần|gồm (những )?(gì|phần)|mục nào|có (những )?gì|nội dung gì)"
+     r"|\bcó những phần nào\b|\bgồm những mục\b", _META_SECTIONS),
+]
+
+
+def meta_response(question: str | None) -> dict[str, str] | None:
+    """Trả về câu FAQ cố định về chatbot/website nếu câu hỏi thuộc loại meta, ngược lại None."""
+
+    if not question:
+        return None
+    low = question.lower()
+    for pattern, text in _META_PATTERNS:
+        if re.search(pattern, low):
+            return {"kind": "meta", "text": text}
+    return None
 
 
 def triage(

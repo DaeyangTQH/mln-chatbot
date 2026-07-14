@@ -626,12 +626,30 @@
       "section": "Nguồn chính sách > Ngành nước",
       "subsection": null,
       "source_file": null
+    },
+    {
+      "source_type": "example",
+      "source_title": "Ví dụ minh họa trên website MLN121",
+      "source_url": "https://mln121-xi.vercel.app",
+      "citation": "Ví dụ minh họa (website MLN121)",
+      "section_path": "Ví dụ minh họa > Tập trung tư bản và độc quyền",
+      "text": "Ví dụ về tập trung tư bản dẫn tới độc quyền: Grab tiếp nhận (mua lại) hoạt động của Uber tại khu vực Đông Nam Á. Sau thương vụ này, số đối thủ cạnh tranh lớn trên thị trường gọi xe công nghệ giảm đi, thị trường trở nên tập trung hơn và quyền lực thị trường của Grab (khả năng chi phối giá cả và điều kiện dịch vụ) tăng lên. Đây là minh họa cho quá trình tập trung tư bản: các doanh nghiệp lớn liên kết, sáp nhập hoặc mua lại đối thủ, khiến mức độ tập trung sản xuất ngày càng cao và dần hình thành tổ chức độc quyền có quyền lực chi phối thị trường.",
+      "id": "example_node_0001",
+      "chapter": null,
+      "chapter_title": null,
+      "section": "Ví dụ minh họa > Tập trung tư bản và độc quyền",
+      "subsection": null,
+      "source_file": null,
+      "breadcrumb": "Ví dụ minh họa > Tập trung tư bản và độc quyền",
+      "page_start": null,
+      "page_end": null
     }
   ],
   "stats": {
     "textbook_nodes": 25,
     "synthesis_nodes": 8,
     "policy_nodes": 2,
-    "total_nodes": 35
+    "total_nodes": 36,
+    "example_nodes": 1
   }
 }

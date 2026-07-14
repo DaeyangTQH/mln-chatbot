@@ -122,6 +122,30 @@ POLICY_NODES = [
 ]
 
 
+# Ví dụ minh họa đã được kiểm duyệt trên website (KHÔNG có trong giáo trình).
+# Nạp vào corpus để chatbot trả lời được các câu vận dụng (vd Grab/Uber) thay vì
+# từ chối. Chỉ thêm ví dụ đã được nhóm tác giả web duyệt — không mở cho dữ kiện
+# đời thực tùy tiện. Muốn thêm ví dụ mới: chép thêm một khối như bên dưới.
+EXAMPLE_NODES = [
+    {
+        "source_type": "example",
+        "source_title": "Ví dụ minh họa trên website MLN121",
+        "source_url": "https://mln121-xi.vercel.app",
+        "citation": "Ví dụ minh họa (website MLN121)",
+        "section_path": "Ví dụ minh họa > Tập trung tư bản và độc quyền",
+        "text": (
+            "Ví dụ về tập trung tư bản dẫn tới độc quyền: Grab tiếp nhận (mua lại) hoạt động "
+            "của Uber tại khu vực Đông Nam Á. Sau thương vụ này, số đối thủ cạnh tranh lớn trên "
+            "thị trường gọi xe công nghệ giảm đi, thị trường trở nên tập trung hơn và quyền lực "
+            "thị trường của Grab (khả năng chi phối giá cả và điều kiện dịch vụ) tăng lên. Đây là "
+            "minh họa cho quá trình tập trung tư bản: các doanh nghiệp lớn liên kết, sáp nhập hoặc "
+            "mua lại đối thủ, khiến mức độ tập trung sản xuất ngày càng cao và dần hình thành tổ chức "
+            "độc quyền có quyền lực chi phối thị trường."
+        ),
+    },
+]
+
+
 def normalize_line(line: str) -> str:
     line = unicodedata.normalize("NFC", line)
     line = line.replace("\x00", " ")
@@ -411,20 +435,40 @@ def extract_policy_nodes() -> list[dict[str, Any]]:
     return nodes
 
 
+def extract_example_nodes() -> list[dict[str, Any]]:
+    nodes = []
+    for idx, raw in enumerate(EXAMPLE_NODES, start=1):
+        node = dict(raw)
+        node["id"] = f"example_node_{idx:04d}"
+        node["chapter"] = None
+        node["chapter_title"] = None
+        node["section"] = node.get("section_path")
+        node["subsection"] = None
+        node["source_file"] = None
+        node["breadcrumb"] = node.get("section_path")
+        node["page_start"] = None
+        node["page_end"] = None
+        nodes.append(node)
+    return nodes
+
+
 def build_structured(include_ch5_part3: bool = False) -> dict[str, Any]:
     textbook_nodes = extract_textbook_nodes(include_ch5_part3=include_ch5_part3)
     synthesis_nodes = extract_synthesis_nodes()
     policy_nodes = extract_policy_nodes()
+    example_nodes = extract_example_nodes()
+    all_nodes = textbook_nodes + synthesis_nodes + policy_nodes + example_nodes
     return {
         "source_pdf": str(config.PDF_PATH),
         "page_ranges": [page_range.__dict__ for page_range in PAGE_RANGES],
         "include_ch5_part3": include_ch5_part3,
-        "nodes": textbook_nodes + synthesis_nodes + policy_nodes,
+        "nodes": all_nodes,
         "stats": {
             "textbook_nodes": len(textbook_nodes),
             "synthesis_nodes": len(synthesis_nodes),
             "policy_nodes": len(policy_nodes),
-            "total_nodes": len(textbook_nodes) + len(synthesis_nodes) + len(policy_nodes),
+            "example_nodes": len(example_nodes),
+            "total_nodes": len(all_nodes),
         },
     }
 

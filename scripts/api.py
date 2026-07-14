@@ -108,6 +108,14 @@ def chat(request: ChatRequest) -> StreamingResponse:
                     yield sse({"type": "done"}, event="done")
                     return
 
+            # 1b) Câu hỏi vui/meta về chatbot & website -> trả lời cố định, bỏ qua RAG.
+            meta = guard.meta_response(request.question)
+            if meta:
+                yield sse({"type": "status", "message": "guard"})
+                yield sse({"type": "token", "token": meta["text"]})
+                yield sse({"type": "done"}, event="done")
+                return
+
             yield sse({"type": "status", "message": "retrieving"})
             # Pinned slide text steers retrieval too, so the corpus passages we
             # fetch are about the exact sentence the user highlighted.
@@ -152,9 +160,11 @@ def chat(request: ChatRequest) -> StreamingResponse:
             for token in stream_without_sources(stream):
                 chunks.append(token)
                 yield sse({"type": "token", "token": token})
-            # 3) Mục "Nguồn" khớp nội dung: câu từ chối -> "Không có", còn lại dựng từ
-            # metadata các đoạn đã truy hồi (giới hạn số nguồn, không đổ toàn bộ top-k).
-            yield sse({"type": "token", "token": "\n\n" + sources_for_answer("".join(chunks), contexts)})
+            # 3) Mục "Nguồn" chỉ gồm nguồn sơ cấp thực; nếu rỗng (câu từ chối hoặc không
+            # còn nguồn nào sau khi lọc bản tổng hợp) thì BỎ LUÔN mục Nguồn.
+            sources = sources_for_answer("".join(chunks), contexts)
+            if sources:
+                yield sse({"type": "token", "token": "\n\n" + sources})
             yield sse({"type": "done"}, event="done")
         except Exception as exc:  # noqa: BLE001 - send API errors as SSE so the UI can render them
             yield sse({"type": "error", "message": str(exc)}, event="error")
