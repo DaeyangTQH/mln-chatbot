@@ -1,0 +1,186 @@
+[
+  {
+    "id": "c1q1",
+    "chapter": "Chương I — Độc quyền là gì?",
+    "question": "Theo giáo trình, độc quyền là gì?",
+    "label": "Doanh nghiệp hoặc liên minh doanh nghiệp lớn chi phối thị trường để thu lợi nhuận độc quyền cao",
+    "answer": "Độc quyền là một doanh nghiệp hoặc một liên minh doanh nghiệp lớn có khả năng chi phối thị trường nhằm thu lợi nhuận độc quyền cao.",
+    "explanation": "Điều quan trọng không phải là có một hay nhiều doanh nghiệp, mà là khả năng chi phối thị trường và mục tiêu thu lợi nhuận độc quyền cao."
+  },
+  {
+    "id": "c1q2",
+    "chapter": "Chương I — Độc quyền là gì?",
+    "question": "Ví dụ nào sau đây minh họa cho độc quyền nhóm?",
+    "label": "OPEC",
+    "answer": "OPEC là ví dụ minh họa cho độc quyền nhóm.",
+    "explanation": "OPEC là liên minh nhiều quốc gia xuất khẩu dầu mỏ cùng phối hợp điều chỉnh sản lượng, qua đó ảnh hưởng đến giá dầu thế giới. Đây là ví dụ điển hình của liên minh cùng chi phối thị trường."
+  },
+  {
+    "id": "c1q3",
+    "chapter": "Chương I — Độc quyền là gì?",
+    "question": "Đặc điểm nào không phải của doanh nghiệp độc quyền?",
+    "label": "Doanh nghiệp mới dễ gia nhập thị trường",
+    "answer": "Việc doanh nghiệp mới dễ gia nhập thị trường không phải là đặc điểm của doanh nghiệp độc quyền.",
+    "explanation": "Doanh nghiệp độc quyền thường tạo ra rào cản lớn khiến đối thủ mới rất khó tham gia; các đặc điểm đúng gồm chiếm thị phần lớn, có khả năng chi phối giá và thu lợi nhuận độc quyền cao."
+  },
+  {
+    "id": "c1q4",
+    "chapter": "Chương I — Độc quyền là gì?",
+    "question": "Vì sao Google được xem là doanh nghiệp có vị thế thống lĩnh trên thị trường tìm kiếm?",
+    "label": "Vì chiếm thị phần lớn",
+    "answer": "Vì Google chiếm thị phần rất lớn trên thị trường tìm kiếm.",
+    "explanation": "Google không phải công cụ tìm kiếm duy nhất, nhưng trong nhiều năm đã chiếm thị phần rất lớn. Nhờ đó, Google có sức ảnh hưởng mạnh đến cách người dùng tìm kiếm thông tin và đến thị trường quảng cáo trực tuyến."
+  },
+  {
+    "id": "c1q5",
+    "chapter": "Chương I — Độc quyền là gì?",
+    "question": "Ngày nay, yếu tố nào đang tạo ra sức ép cạnh tranh lớn hơn đối với Google?",
+    "label": "Các công cụ AI",
+    "answer": "Các công cụ AI đang tạo ra sức ép cạnh tranh lớn hơn đối với Google.",
+    "explanation": "Các công cụ AI như ChatGPT, Gemini hay Perplexity đang thay đổi cách người dùng tìm kiếm thông tin. Thay vì gõ từ khóa trên Google, nhiều người đặt câu hỏi trực tiếp cho AI."
+  },
+  {
+    "id": "c2q1",
+    "chapter": "Chương II — Hình thành độc quyền",
+    "question": "Con đường hình thành độc quyền tự nhiên diễn ra như thế nào?",
+    "label": "Cạnh tranh → doanh nghiệp lớn lên → sáp nhập → độc quyền",
+    "answer": "Con đường hình thành độc quyền tự nhiên là: cạnh tranh khiến doanh nghiệp lớn lên, rồi sáp nhập, cuối cùng dẫn tới độc quyền.",
+    "explanation": "Từ cạnh tranh, các doanh nghiệp mạnh dần lớn lên và thâu tóm/sáp nhập với nhau, đến một mức độ tập trung nhất định thì hình thành độc quyền."
+  },
+  {
+    "id": "c2q2",
+    "chapter": "Chương II — Hình thành độc quyền",
+    "question": "Grab mua lại hoạt động của Uber tại Đông Nam Á là ví dụ của hiện tượng gì?",
+    "label": "Tích tụ và tập trung sản xuất",
+    "answer": "Đây là ví dụ của tích tụ và tập trung sản xuất.",
+    "explanation": "Sau cạnh tranh, doanh nghiệp mạnh mua lại đối thủ, làm thị trường tập trung hơn."
+  },
+  {
+    "id": "c2q3",
+    "chapter": "Chương II — Hình thành độc quyền",
+    "question": "Ai là người đưa ra nhận định: Tự do cạnh tranh đẻ ra tập trung sản xuất, và sự tập trung sản xuất này, khi phát triển đến một mức độ nhất định, lại dẫn tới độc quyền?",
+    "label": "V.I. Lênin",
+    "answer": "Nhận định này là của V.I. Lênin.",
+    "explanation": "Đây là nhận định nổi tiếng của V.I. Lênin khi phân tích quá trình phát triển của chủ nghĩa tư bản: cạnh tranh khiến doanh nghiệp ngày càng tập trung vốn và mở rộng quy mô; khi sự tập trung đó đạt đến một mức nhất định sẽ hình thành các tổ chức độc quyền."
+  },
+  {
+    "id": "c2q4",
+    "chapter": "Chương II — Hình thành độc quyền",
+    "question": "Nguyên nhân nào khiến ngành chip chỉ có một số ít doanh nghiệp lớn?",
+    "label": "Vốn đầu tư và công nghệ quá lớn",
+    "answer": "Vì vốn đầu tư và công nghệ đòi hỏi quá lớn.",
+    "explanation": "Rào cản về vốn và công nghệ quá cao khiến rất ít doanh nghiệp đủ sức tham gia, dẫn tới thị trường chỉ còn một số ít doanh nghiệp lớn."
+  },
+  {
+    "id": "c2q5",
+    "chapter": "Chương II — Hình thành độc quyền",
+    "question": "Vì sao khủng hoảng kinh tế có thể thúc đẩy độc quyền?",
+    "label": "Doanh nghiệp lớn tận dụng cơ hội mua lại doanh nghiệp yếu",
+    "answer": "Vì doanh nghiệp lớn tận dụng cơ hội mua lại các doanh nghiệp yếu.",
+    "explanation": "Trong khủng hoảng, nhiều doanh nghiệp nhỏ và yếu phá sản hoặc suy kiệt; doanh nghiệp lớn nhân cơ hội thâu tóm, khiến thị trường tập trung hơn và thúc đẩy độc quyền."
+  },
+  {
+    "id": "c3q1",
+    "chapter": "Chương III — Độc quyền nhà nước",
+    "question": "Theo giáo trình, độc quyền nhà nước trong chủ nghĩa tư bản là gì?",
+    "label": "Sự kết hợp giữa quyền lực Nhà nước và các tổ chức tư bản độc quyền",
+    "answer": "Độc quyền nhà nước trong chủ nghĩa tư bản là sự kết hợp giữa quyền lực Nhà nước và các tổ chức tư bản độc quyền.",
+    "explanation": "Đây là điểm dễ nhầm nhất của chương: không phải Nhà nước sở hữu toàn bộ doanh nghiệp, mà là sự kết hợp giữa sức mạnh của Nhà nước với các tổ chức tư bản độc quyền."
+  },
+  {
+    "id": "c3q2",
+    "chapter": "Chương III — Độc quyền nhà nước",
+    "question": "Nguyên nhân nào không thuộc nguyên nhân hình thành độc quyền nhà nước?",
+    "label": "Dân số tăng nhanh",
+    "answer": "Dân số tăng nhanh không phải là nguyên nhân hình thành độc quyền nhà nước.",
+    "explanation": "Các nguyên nhân đúng gồm: quy mô sản xuất ngày càng lớn, có những ngành tư nhân không muốn đầu tư, và xu hướng quốc tế hóa; dân số tăng nhanh không nằm trong số đó."
+  },
+  {
+    "id": "c3q3",
+    "chapter": "Chương III — Độc quyền nhà nước",
+    "question": "Độc quyền nhà nước trong chủ nghĩa tư bản theo quan điểm Mác - Lênin phục vụ lợi ích chủ yếu của ai?",
+    "label": "Các tổ chức tư bản độc quyền",
+    "answer": "Chủ yếu phục vụ lợi ích của các tổ chức tư bản độc quyền.",
+    "explanation": "Theo quan điểm Mác - Lênin, độc quyền nhà nước trong chủ nghĩa tư bản trước hết bảo vệ và phục vụ lợi ích của các tổ chức tư bản độc quyền."
+  },
+  {
+    "id": "c3q4",
+    "chapter": "Chương III — Độc quyền nhà nước",
+    "question": "Ví dụ nào minh họa việc Nhà nước phải đầu tư vì tư nhân khó thực hiện?",
+    "label": "Đường sắt cao tốc",
+    "answer": "Đường sắt cao tốc là ví dụ minh họa việc Nhà nước phải đầu tư vì tư nhân khó thực hiện.",
+    "explanation": "Những công trình như đường sắt cao tốc đòi hỏi vốn rất lớn, thời gian thu hồi lâu và rủi ro cao, nên tư nhân khó hoặc không muốn đầu tư, buộc Nhà nước phải đảm nhận."
+  },
+  {
+    "id": "c3q5",
+    "chapter": "Chương III — Độc quyền nhà nước",
+    "question": "Theo giáo trình, độc quyền nhà nước trong chủ nghĩa tư bản giúp chủ nghĩa tư bản điều gì?",
+    "label": "Tiếp tục phát triển",
+    "answer": "Giúp chủ nghĩa tư bản tiếp tục phát triển.",
+    "explanation": "Giáo trình kết luận rằng độc quyền nhà nước là một hình thức vận động mới giúp chủ nghĩa tư bản thích nghi với những thay đổi của nền kinh tế và tiếp tục phát triển, chứ không phải xóa bỏ cạnh tranh hay khu vực tư nhân."
+  },
+  {
+    "id": "c4q1",
+    "chapter": "Chương IV — Vận dụng ở Việt Nam",
+    "question": "Việt Nam hiện nay vận hành theo mô hình kinh tế nào?",
+    "label": "Kinh tế thị trường định hướng xã hội chủ nghĩa",
+    "answer": "Việt Nam vận hành theo mô hình kinh tế thị trường định hướng xã hội chủ nghĩa.",
+    "explanation": "Đây là mô hình kết hợp cơ chế thị trường với vai trò định hướng, điều tiết của Nhà nước theo mục tiêu xã hội chủ nghĩa."
+  },
+  {
+    "id": "c4q2",
+    "chapter": "Chương IV — Vận dụng ở Việt Nam",
+    "question": "Thành phần kinh tế nào không tồn tại ở Việt Nam?",
+    "label": "Trạng thái chỉ có duy nhất kinh tế nhà nước",
+    "answer": "Trạng thái 'chỉ có kinh tế nhà nước' không tồn tại ở Việt Nam.",
+    "explanation": "Việt Nam là nền kinh tế nhiều thành phần: bên cạnh kinh tế nhà nước còn có kinh tế tư nhân, kinh tế có vốn đầu tư nước ngoài (FDI)... nên không thể chỉ có duy nhất kinh tế nhà nước."
+  },
+  {
+    "id": "c4q3",
+    "chapter": "Chương IV — Vận dụng ở Việt Nam",
+    "question": "Vì sao điện và nước được coi là độc quyền tự nhiên?",
+    "label": "Vì chi phí hạ tầng rất lớn, nhiều hệ thống song song sẽ kém hiệu quả",
+    "answer": "Vì chi phí xây dựng hạ tầng rất lớn, nếu có nhiều hệ thống song song thì sẽ kém hiệu quả.",
+    "explanation": "Điện và nước cần hệ thống hạ tầng khổng lồ (đường dây, đường ống); xây nhiều hệ thống song song rất tốn kém và lãng phí, nên một hệ thống chung thường hiệu quả hơn — đó là bản chất của độc quyền tự nhiên."
+  },
+  {
+    "id": "c4q4",
+    "chapter": "Chương IV — Vận dụng ở Việt Nam",
+    "question": "Nếu tư nhân hóa hoàn toàn ngành điện, nguy cơ nào có thể xảy ra?",
+    "label": "Hình thành độc quyền tư nhân",
+    "answer": "Nguy cơ hình thành độc quyền tư nhân.",
+    "explanation": "Vì điện là độc quyền tự nhiên, nếu giao hoàn toàn cho tư nhân thì một doanh nghiệp tư nhân có thể nắm giữ hạ tầng thiết yếu và trở thành độc quyền tư nhân, gây bất lợi cho người tiêu dùng."
+  },
+  {
+    "id": "c4q5",
+    "chapter": "Chương IV — Vận dụng ở Việt Nam",
+    "question": "Theo định hướng hiện nay của Việt Nam, Nhà nước giữ vai trò chủ đạo ở khâu nào trong ngành điện?",
+    "label": "Truyền tải điện và điều tiết hệ thống",
+    "answer": "Nhà nước giữ vai trò chủ đạo ở khâu truyền tải điện và điều tiết hệ thống.",
+    "explanation": "Nhà nước tập trung nắm khâu truyền tải và điều tiết hệ thống — những khâu mang tính hạ tầng thiết yếu — trong khi có thể mở cho tư nhân tham gia ở một số khâu khác như phát điện."
+  },
+  {
+    "id": "c4q6",
+    "chapter": "Chương IV — Vận dụng ở Việt Nam",
+    "question": "Vì sao Nhà nước vẫn giữ vai trò chủ đạo trong lĩnh vực điện và nước?",
+    "label": "Để bảo đảm an ninh, ổn định kinh tế và lợi ích công cộng",
+    "answer": "Để bảo đảm an ninh, ổn định kinh tế và lợi ích công cộng.",
+    "explanation": "Điện và nước là hàng hóa thiết yếu, gắn với an ninh năng lượng và đời sống người dân; Nhà nước giữ vai trò chủ đạo để bảo đảm an ninh, ổn định kinh tế và phục vụ lợi ích công cộng, thay vì chạy theo tối đa hóa lợi nhuận."
+  },
+  {
+    "id": "c4q7",
+    "chapter": "Chương IV — Vận dụng ở Việt Nam",
+    "question": "Nếu mỗi công ty điện đều xây một hệ thống cột điện và đường dây riêng thì điều gì có khả năng xảy ra nhất?",
+    "label": "Chi phí xã hội tăng và hạ tầng bị lãng phí",
+    "answer": "Chi phí xã hội tăng và hạ tầng bị lãng phí.",
+    "explanation": "Đây chính là bản chất của độc quyền tự nhiên: một hệ thống hạ tầng chung thường hiệu quả hơn nhiều hệ thống song song; xây trùng lặp nhiều hệ thống chỉ làm tăng chi phí xã hội và lãng phí hạ tầng."
+  },
+  {
+    "id": "c4q8",
+    "chapter": "Chương IV — Vận dụng ở Việt Nam",
+    "question": "Qua toàn bộ bài học, vì sao Việt Nam chưa tư nhân hóa hoàn toàn điện và nước?",
+    "label": "Vì đây là ngành độc quyền tự nhiên, thiết yếu, và Nhà nước cần bảo đảm lợi ích công cộng",
+    "answer": "Vì đây là ngành độc quyền tự nhiên, thiết yếu, và Nhà nước cần bảo đảm lợi ích công cộng.",
+    "explanation": "Việt Nam không cấm tư nhân tham gia, nhưng Nhà nước vẫn giữ vai trò chi phối ở các khâu cốt lõi để bảo đảm an ninh năng lượng, ổn định kinh tế và phục vụ lợi ích công cộng."
+  }
+]

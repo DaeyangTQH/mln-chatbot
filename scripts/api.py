@@ -17,11 +17,13 @@ ROOT_DIR = Path(__file__).resolve().parents[1]
 if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
-from scripts import config, guard
+from scripts import config, guard, quiz_match
 from scripts.chat import (
     build_messages,
+    build_quiz_messages,
     call_llm,
     in_scope,
+    quiz_answer_prefix,
     sources_for_answer,
     stream_without_sources,
     temperature_for_mode,
@@ -113,6 +115,19 @@ def chat(request: ChatRequest) -> StreamingResponse:
             if meta:
                 yield sse({"type": "status", "message": "guard"})
                 yield sse({"type": "token", "token": meta["text"]})
+                yield sse({"type": "done"}, event="done")
+                return
+
+            # 1c) Câu khớp bộ câu hỏi ôn tập -> trả lời dựa trên ĐÁP ÁN CHUẨN, bỏ qua RAG.
+            #     Đặt TRƯỚC retrieval/cổng relevance để câu ôn tập không bị chặn nhầm.
+            hit = quiz_match.match(request.question)
+            if hit:
+                yield sse({"type": "status", "message": "quiz"})
+                # Dòng đáp án IN ĐẬM (dựng bằng code) phát trước, rồi mới stream giải thích.
+                yield sse({"type": "token", "token": quiz_answer_prefix(hit.item) + "\n\n"})
+                stream = call_llm(build_quiz_messages(hit.item), stream=True, temperature=0.2)
+                for token in stream_without_sources(stream):
+                    yield sse({"type": "token", "token": token})
                 yield sse({"type": "done"}, event="done")
                 return
 
