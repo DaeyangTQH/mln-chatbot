@@ -717,6 +717,10 @@
     {
       "id": "policy_node_0002_chunk_01",
       "hash": "d46086281b48e4e9e6432d4e273425b064483db7d6e9c0cf34a77b9ba2094304"
+    },
+    {
+      "id": "example_node_0001_chunk_01",
+      "hash": "678128d6ddd553c4205a4c1d5d00c131e36c9c3ab4feccef24c34e255768fdb3"
     }
   ]
 }
