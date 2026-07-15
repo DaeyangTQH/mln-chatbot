@@ -14,7 +14,7 @@ ROOT_DIR = Path(__file__).resolve().parents[1]
 if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
-from scripts import config, guard
+from scripts import config, guard, quiz_match
 from scripts.retrieve import format_source, hybrid_retrieve, retrieve_with_relevance
 
 
@@ -289,6 +289,54 @@ def sources_for_answer(answer_text: str, contexts: list[dict[str, Any]]) -> str:
     return build_sources_block(contexts)
 
 
+_QUIZ_SYSTEM = (
+    "Bạn là trợ giảng môn Kinh tế chính trị Mác - Lênin. Người học vừa hỏi một câu nằm trong "
+    "BỘ CÂU HỎI ÔN TẬP đã được nhóm thiết kế sẵn, và bạn được cung cấp ĐÁP ÁN CHUẨN đã kiểm "
+    "duyệt cho câu đó. Hệ thống ĐÃ tự hiển thị dòng đáp án đúng cho người học rồi; nhiệm vụ của "
+    "bạn CHỈ là viết PHẦN GIẢI THÍCH ngắn gọn, dễ hiểu, theo giọng giảng điềm đạm.\n"
+    "- CHỈ viết phần giải thích (khoảng 2-4 câu). TUYỆT ĐỐI KHÔNG mở đầu bằng \"Đáp án là...\", "
+    "KHÔNG nhắc lại nguyên văn đáp án, KHÔNG nêu chữ cái A/B/C/D (người học không thấy các phương án).\n"
+    "- Bám sát đáp án chuẩn và phần giải thích tham khảo; TUYỆT ĐỐI không mâu thuẫn với đáp án chuẩn "
+    "và không bịa số liệu, tên riêng, mốc thời gian.\n"
+    "- Chỉ xuất văn bản thuần (plain text), không dùng Markdown (**, *, #, backtick), không tự viết mục \"Nguồn\".\n"
+    "- Trả lời bằng tiếng Việt, cô đọng."
+)
+
+
+def quiz_answer_prefix(item: dict[str, Any]) -> str:
+    """Dòng đáp án IN ĐẬM đứng trước phần giải thích (dựng bằng code, không qua LLM).
+
+    Dùng `**...**` để UI in đậm — đây là ngoại lệ có chủ đích của nhánh quiz so với
+    quy tắc plain-text chung; phần giải thích phía sau vẫn là văn bản thuần.
+    """
+
+    label = (item.get("label") or item.get("answer") or "").strip().rstrip(".")
+    return f"**{label}**"
+
+
+def build_quiz_messages(item: dict[str, Any]) -> list[dict[str, str]]:
+    """Dựng message cho nhánh 'đáp án chuẩn' — LLM CHỈ sinh phần giải thích."""
+
+    explanation = (item.get("explanation") or "").strip()
+    explanation_block = explanation or (
+        "(chưa có sẵn giải thích — hãy tự giải thích ngắn gọn dựa trên đáp án chuẩn và kiến thức môn học)"
+    )
+    user_prompt = f"""Câu hỏi ôn tập:
+{item["question"]}
+
+ĐÁP ÁN CHUẨN (đã kiểm duyệt, phải bám sát; ĐỪNG nhắc lại nguyên văn):
+{item["answer"]}
+
+GIẢI THÍCH THAM KHẢO:
+{explanation_block}
+
+Chỉ viết PHẦN GIẢI THÍCH cho đáp án trên theo đúng các quy tắc ở trên."""
+    return [
+        {"role": "system", "content": _QUIZ_SYSTEM},
+        {"role": "user", "content": user_prompt},
+    ]
+
+
 def build_messages(
     question: str,
     contexts: list[dict[str, Any]],
@@ -409,6 +457,14 @@ def answer(
     meta = guard.meta_response(question)
     if meta:
         return meta["text"], []
+
+    # 1c) Câu khớp bộ câu hỏi ôn tập -> trả lời dựa trên ĐÁP ÁN CHUẨN, bỏ qua RAG.
+    #     Đặt TRƯỚC cổng relevance/scope để câu ôn tập không bị chặn nhầm.
+    hit = quiz_match.match(question)
+    if hit:
+        explanation = call_llm(build_quiz_messages(hit.item), stream=False, temperature=0.2)
+        explanation = strip_model_sources(str(explanation).strip()).strip()
+        return f"{quiz_answer_prefix(hit.item)}\n\n{explanation}", []
 
     # 2) Cổng liên quan: nếu corpus không có gì đủ gần thì từ chối thay vì bịa.
     contexts, relevance = retrieve_with_relevance(question)

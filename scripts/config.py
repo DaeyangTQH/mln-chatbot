@@ -18,6 +18,7 @@ IDS_PATH = OUTPUT_DIR / "ids.json"
 BM25_PATH = OUTPUT_DIR / "bm25.pkl"
 SYNTHESIS_PATH = OUTPUT_DIR / "monopoly_synthesis_vi.md"
 SOURCES_PATH = OUTPUT_DIR / "sources.md"
+QUIZ_QA_PATH = OUTPUT_DIR / "quiz_qa.json"
 SUMMARY_CACHE_PATH = OUTPUT_DIR / "summary_cache.json"
 FLASHCARDS_CACHE_PATH = OUTPUT_DIR / "flashcards_cache.json"
 
@@ -103,6 +104,14 @@ PARENT_MAX_TOKENS = int(os.getenv("RAG_PARENT_MAX_TOKENS", "2000"))
 CHUNK_MIN_TOKENS = int(os.getenv("RAG_CHUNK_MIN_TOKENS", "450"))
 CHUNK_MAX_TOKENS = int(os.getenv("RAG_CHUNK_MAX_TOKENS", "600"))
 CHUNK_OVERLAP_TOKENS = int(os.getenv("RAG_CHUNK_OVERLAP_TOKENS", "90"))
+
+# --- Ngân hàng câu hỏi ôn tập (quiz QA-bank) ---
+# Nếu câu người dùng khớp NGỮ NGHĨA (cosine) với một câu trong bộ câu hỏi ôn tập
+# đã thiết kế sẵn (output/rag/quiz_qa.json) ở mức >= QUIZ_MATCH_MIN, chatbot sẽ trả
+# lời dựa trên ĐÁP ÁN CHUẨN đã kiểm duyệt thay vì đi qua RAG. Ngưỡng đặt CAO để chỉ
+# bắt câu gần-verbatim và các biến thể diễn đạt sát, không nuốt câu học thông thường.
+QUIZ_MATCH_ENABLED = os.getenv("RAG_QUIZ_MATCH_ENABLED", "1") == "1"
+QUIZ_MATCH_MIN = float(os.getenv("RAG_QUIZ_MATCH_MIN", "0.85"))
 
 INCLUDE_CHAPTER5_PART3 = os.getenv("RAG_INCLUDE_CH5_PART3", "0") == "1"
 QUIZ_VERIFY = os.getenv("RAG_QUIZ_VERIFY", "1") == "1"
